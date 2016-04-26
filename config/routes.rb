@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'sessions/login'
+
+
+  get 'sessions/home'
+
+  get 'sessions/profile'
+
+  get 'sessions/setting'
+
+  post'sessions/login_attempt', to: 'sessions#login_attempt'
+
   root 'users#new'
 
   get 'users/new'

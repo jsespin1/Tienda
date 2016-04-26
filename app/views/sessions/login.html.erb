@@ -1,0 +1,9 @@
+<% @page_title = "UserAuth | Login" -%>
+<div class= "Sign_Form">
+  <h1>Log in</h1>
+  <%= form_for(:session, :url => {:controller => 'sessions', :action => 'login_attempt'}) do |f| %>
+    <p>Username or Email:</br> <%= f.text_field :username_or_email %></p> 
+    <p>Password:</br> <%= f.password_field :login_password %></p> 
+    <%= f.submit :Login %>
+  <% end %>
+</div>
