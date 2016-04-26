@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   get 'sessions/setting'
 
-  post'sessions/login_attempt', to: 'sessions#login_attempt'
+  post 'sessions/login_attempt', to: 'sessions#login_attempt'
+
+  get 'sessions/logout', to: 'sessions#logout'
 
   root 'users#new'
 

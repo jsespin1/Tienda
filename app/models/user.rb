@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   def encrypt_password
     if password.present?
       self.salt= Digest::SHA1.hexdigest("# We add {email} as unique value and #{Time.now} as random value")
-      self.encrypted_password = Digest::SHA1.hexdigest("#{salt}+{password}")
+      self.encrypted_password = Digest::SHA1.hexdigest("#{salt}+#{password}")
     end
   end
   def clear_password
