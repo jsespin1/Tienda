@@ -26,6 +26,12 @@ Rails.application.routes.draw do
   
   post 'admin/login_attempt', to: 'admin#login_attempt'
 
+  get 'admin/profile/lista_usuarios', to: 'admin#lista_usuarios'
+
+  get 'admin/profile/new_user', to: 'admin#new_user'
+
+  get 'admin/profile/edit_user', to: 'admin#edit_user'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

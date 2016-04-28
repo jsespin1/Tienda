@@ -19,18 +19,6 @@
   <% end %>
 
 
-
-  <div class="already_form">
-    
-    <h2 class="registrado">¿Ya Tienes Cuenta?</h2>
-
-    <%= button_to "Login", sessions_login_path,
-                        :class => 'submit', :method => :get %>
-
-
-  </div>
-
-
 </div>
 
 <% if @user.errors.any? %>
@@ -40,5 +28,3 @@
     <% end %>
     </ul>
   <% end %>
-
-

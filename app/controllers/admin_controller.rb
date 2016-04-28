@@ -31,4 +31,19 @@ class AdminController < ApplicationController
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :encrypted_password, :salt)
   end
 
+  def lista_usuarios
+    @all_users = User.all
+  end
+
+  def new_user
+
+    @user = User.new
+    
+  end
+  
+  def edit_user
+  
+      
+  end  
+
 end
