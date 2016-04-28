@@ -19,7 +19,6 @@ class User < ActiveRecord::Base
     else
       user = User.find_by_username(username_or_email)
     end
-    puts "Usuario -> " + user.inspect
     if user && (user.match_password(login_password) == user.encrypted_password)
       return user
     else
