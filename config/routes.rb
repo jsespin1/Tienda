@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   get 'admin/login', :as => :admin_login
 
+  get 'admin/profile'
+  
   post 'admin/login_attempt', to: 'admin#login_attempt'
 
 
