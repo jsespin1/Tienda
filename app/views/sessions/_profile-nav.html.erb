@@ -1,0 +1,11 @@
+<div>Soy la navbar de profile</div>
+
+
+<%= form_for(:user, :url => {:controller => 'users', :action => 'create'}, :html => {:class => "form_for_sign"}) do |f| %>
+    <h2 class="crear_cuenta">Información Personal</h1>
+    <p class="info-container"> Nombre <span class="text-label"><%= @user.nombre + " " + @user.apellido%> </p>
+    <p class="info-container"> Apellido <%= f.text_field :apel lido, :class => "text-field"%> </p>
+    <h2 class="crear_cuenta">Información Cuenta</h1>
+    <p class="info-container"> Correo <span class="text-label"><%= @user.email%> </p>
+    <p class="info-container"> Contraseña <%= f.password_field :password, :class => "text-field"%></p>
+  <% end %>

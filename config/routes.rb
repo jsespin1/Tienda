@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   get 'sessions/login', :as => :sessions_login
 
-  get 'application/home'
+  get 'application/home', :as => :home
 
   get 'sessions/home'
 
-  get 'sessions/profile'
+  get 'sessions/profile', :as => :session_profile
 
   get 'sessions/setting'
 

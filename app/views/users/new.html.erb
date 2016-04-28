@@ -7,11 +7,13 @@
   
   <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}, :html => {:class => "form_for_sign"}) do |f| %>
     <h2 class="crear_cuenta">Información Personal</h1>
-    <p class="info-container"> Username <%= f.text_field :username, :class => "text-field"%> </p>
+    <p class="info-container"> Nombre <%= f.text_field :nombre, :class => "text-field"%> </p>
+    <p class="info-container"> Apellido <%= f.text_field :apellido, :class => "text-field"%> </p>
     <h2 class="crear_cuenta">Información Cuenta</h1>
-    <p class="info-container"> Email <%= f.text_field :email, :class => "text-field"%> </p>
-    <p class="info-container"> Password <%= f.password_field :password, :class => "text-field"%></p>
-    <p class="info-container"> Password Confirmation <%= f.password_field :password_confirmation, :class => "text-field"%> </p>
+    <p class="info-container"> Usuario <%= f.text_field :username, :class => "text-field"%> </p>
+    <p class="info-container"> Correo <%= f.text_field :email, :class => "text-field"%> </p>
+    <p class="info-container"> Contraseña <%= f.password_field :password, :class => "text-field"%></p>
+    <p class="info-container"> Confirmación Contraseña <%= f.password_field :password_confirmation, :class => "text-field"%> </p>
     <%= f.submit :Register, :class => "submit" %>
   <% end %>
 
