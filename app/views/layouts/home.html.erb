@@ -1,0 +1,23 @@
+
+
+
+
+<div class="home-container">
+
+	<% if session[:user_id]==nil %>
+		<div class="home-container">
+	
+			<%= button_to "Registrate", new_user_path,
+              					:class => 'btn', :method => :get %>
+
+		</div>
+
+
+	<% else %>
+
+		<span>Ya te has suscrito a nuestra página!!</span>
+        
+    <% end %>
+	
+
+</div>

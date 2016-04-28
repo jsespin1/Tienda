@@ -2,6 +2,8 @@ class SessionsController < ApplicationController
 
   before_filter :authenticate_user, :only => [:home, :profile, :setting]
   before_filter :save_login_state, :only => [:login, :login_attempt]
+  before_filter :set_logo
+  before_filter :set_tab
 
   def login
   end
@@ -33,6 +35,11 @@ class SessionsController < ApplicationController
       flash[:color]= "invalid"
       redirect_to(:action => 'login')	
     end
+  end
+
+  def set_tab
+    @tab=3
+    @usuario="-hover"
   end
 
 end

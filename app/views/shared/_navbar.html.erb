@@ -1,0 +1,23 @@
+<%= stylesheet_link_tag    'navbar', media: 'all', 'data-turbolinks-track' => true %>
+
+<div class="header-container" href="navbar.css">
+        <header class="p-header">
+          <ul class="nav-row">
+
+            <div class="nav_logo"> 
+              <li><%=image_tag("logo.png", :id => "logo")%></li>
+            </div>
+
+            <div class="nav_izq"> 
+              <li class="nav_e first <%= @tab==1 ? 'active' : '' %>" id="shop"><%=image_tag("carro"+ @carro+".png", :class => "icono")%><span class="navegacion <%= @tab==1 ? 'active' : '' %>">Shop</span></li>
+              <li class="nav_e" id="productos <%= @tab==2 ? 'active' : '' %>"><%=image_tag("auto"+ @auto+".png", :class => "icono")%><span class="navegacion <%= @tab==2 ? 'active' : '' %>">Productos</span></li>
+            </div>
+
+            <div class="nav_der"> 
+              <li class="nav_e first <%= @tab==3 ? 'active' : '' %>" id="usuario"><%=image_tag("usuario"+ @usuario+".png", :class => "icono")%><span class="navegacion <%= @tab==3 ? 'active' : '' %>">Login</span></li>
+              <li class="nav_e <%= @tab==4 ? 'active' : '' %>" id="nosotros"><%=image_tag("nosotros"+ @nosotros+".png", :class => "icono")%><span class="navegacion <%= @tab==4 ? 'active' : '' %>">Nosotros</span></li>             
+            </div>
+
+          </ul>
+        </header>
+</div>

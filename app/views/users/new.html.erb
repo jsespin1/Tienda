@@ -1,19 +1,37 @@
+<%= stylesheet_link_tag    'users', media: 'all', 'data-turbolinks-track' => true %>
 
 <% @page_title = "UserAuth | Signup" %>
-<div class="Sign_Form">
+<div class="sign_form">
 
-  <h1>Sign Up</h1>
+  <h1 class="crear_cuenta">Crear Nueva Cuenta</h1>
   
-  <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
-    <p> Username:</br> <%= f.text_field :username%> </p>
-    <p> Email:</br> <%= f.text_field :email%> </p>
-    <p> Password:</br> <%= f.password_field :password%></p>
-    <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
-    <%= f.submit :Signup %>
+  <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}, :html => {:class => "form_for_sign"}) do |f| %>
+    <h2 class="crear_cuenta">Información Personal</h1>
+    <p class="info-container"> Username <%= f.text_field :username, :class => "text-field"%> </p>
+    <h2 class="crear_cuenta">Información Cuenta</h1>
+    <p class="info-container"> Email <%= f.text_field :email, :class => "text-field"%> </p>
+    <p class="info-container"> Password <%= f.password_field :password, :class => "text-field"%></p>
+    <p class="info-container"> Password Confirmation <%= f.password_field :password_confirmation, :class => "text-field"%> </p>
+    <%= f.submit :Register, :class => "submit" %>
   <% end %>
 
-  <% if @user.errors.any? %>
-    <ul class="Signup_Errors">
+
+
+  <div class="already_form">
+
+    <h2 class="registrado">Ya Tienes Cuenta?</h2>
+
+    <%= button_to "Login", sessions_login_path,
+                        :class => 'submit', :method => :get %>
+
+
+  </div>
+
+
+</div>
+
+<% if @user.errors.any? %>
+    <ul class="signup_errors">
     <% for message_error in @user.errors.full_messages %>
       <li>* <%= message_error %></li>
     <% end %>
@@ -21,4 +39,3 @@
   <% end %>
 
 
-</div>

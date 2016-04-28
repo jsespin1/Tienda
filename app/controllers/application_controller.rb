@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  before_filter :set_logo
+
+  def home 
+  	render 'layouts/home'
+  end
 
   
 	protected 
@@ -22,6 +27,12 @@ class ApplicationController < ActionController::Base
 	  else
 	    return true
 	  end
+	end
+	def set_logo
+		@carro=""
+		@auto=""
+		@usuario=""
+		@nosotros=""
 	end
   
 end

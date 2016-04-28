@@ -1,0 +1,72 @@
+
+div.sign_form{
+	display:inline-block;
+	width:100%;
+	color: #403C3D;
+	text-transform: uppercase;
+	font-family: "Franklin Gothic Book","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+form.form_for_sign{
+	display:block;
+	float:left;
+	width:35%;
+}
+
+div.already_form{
+	float:left;
+	width:35%;
+}
+
+p.info-container{
+	display:inline-block;
+	width:350px;
+	height:20px;
+	border-top: 1px solid #bcbaba;
+	padding-top: 15px;
+	font-size: 10px;
+}
+
+h1.crear_cuenta{
+	font-size: 22px;
+	font-weight: normal;
+	padding-bottom: 10px;
+}
+
+h2.crear_cuenta{
+	font-size: 14px;
+	font-weight: normal;
+	padding-top:30px;
+}
+
+
+input.text-field{
+	display:inline-block;
+	float:right;
+	margin-right:40px;
+	border:none;
+	border-bottom-style:solid;
+	width:160px;
+ 	border: 1px solid #bcbaba;
+    outline: 0px solid #CCC;
+    background-color: cornsilk;
+}
+
+
+input.submit{
+	background-color: #fc3;
+	margin-top: 25px;
+	border: 1px solid #bcbaba;
+    outline: 0px solid #CCC;
+    width:140px;
+    border-bottom-style:solid;
+    margin-left:48%;
+}
+
+h2.registrado{
+	font-size: 14px;
+	font-weight: normal;
+	margin-left:48%;
+}
+
+

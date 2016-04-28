@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'sessions/login'
+  get 'sessions/login', :as => :sessions_login
 
+  get 'application/home'
 
   get 'sessions/home'
 
@@ -13,9 +14,9 @@ Rails.application.routes.draw do
 
   get 'sessions/logout', to: 'sessions#logout'
 
-  root 'users#new'
+  root 'application#home'
 
-  get 'users/new'
+  get 'users/new', :as => :new_user
 
   post 'users/create', to: 'users#create'
 
