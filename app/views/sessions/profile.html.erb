@@ -1,6 +1,9 @@
 <%= stylesheet_link_tag    'users', media: 'all', 'data-turbolinks-track' => true %>
 
 <h2 class='User_Header'> <%=@current_user.username%> Profile <h2>
+<% if @current_user.admin %>
+<h2> ADMIN </h2>
+<%end%>
 
 
 <% @page_title = "User | Profile" %>
@@ -8,9 +11,6 @@
 
 
   <div class="profile-nav">
-
-  	<%= render :partial => 'sessions/profile-nav' %>
-
 
   </div>
 
