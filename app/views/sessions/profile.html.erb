@@ -1,1 +1,29 @@
+<%= stylesheet_link_tag    'users', media: 'all', 'data-turbolinks-track' => true %>
+
 <h2 class='User_Header'> <%=@current_user.username%> Profile <h2>
+
+
+<% @page_title = "User | Profile" %>
+<div class="profile_form">
+
+
+  <div class="profile-nav">
+
+  	<%= render :partial => 'sessions/profile-nav' %>
+
+
+  </div>
+
+  <div class="my-account">
+
+  	<div class="overview">
+
+
+  	</div>
+
+
+  </div>
+
+
+
+</div>

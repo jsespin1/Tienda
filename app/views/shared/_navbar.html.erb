@@ -4,9 +4,11 @@
         <header class="p-header">
           <ul class="nav-row">
 
-            <div class="nav_logo"> 
-              <li><%=image_tag("logo.png", :id => "logo")%></li>
-            </div>
+            <%= link_to home_path do %>
+              <div class="nav_logo"> 
+                <li><%=image_tag("logo.png", :id => "logo")%></li>
+              </div>
+            <% end %>
 
             <div class="nav_izq"> 
               <li class="nav_e first <%= @tab==1 ? 'active' : '' %>" id="shop"><%=image_tag("carro"+ @carro+".png", :class => "icono")%><span class="navegacion <%= @tab==1 ? 'active' : '' %>">Shop</span></li>
@@ -14,7 +16,9 @@
             </div>
 
             <div class="nav_der"> 
-              <li class="nav_e first <%= @tab==3 ? 'active' : '' %>" id="usuario"><%=image_tag("usuario"+ @usuario+".png", :class => "icono")%><span class="navegacion <%= @tab==3 ? 'active' : '' %>">Login</span></li>
+              <%= link_to session_profile_path(@user) do %>
+                <li class="nav_e first <%= @tab==3 ? 'active' : '' %>" id="usuario"><%=image_tag("usuario"+ @usuario+".png", :class => "icono")%><span class="navegacion <%= @tab==3 ? 'active' : '' %>"><%=@current_user_name%></span></li>
+              <% end %>
               <li class="nav_e <%= @tab==4 ? 'active' : '' %>" id="nosotros"><%=image_tag("nosotros"+ @nosotros+".png", :class => "icono")%><span class="navegacion <%= @tab==4 ? 'active' : '' %>">Nosotros</span></li>             
             </div>
 

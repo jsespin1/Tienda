@@ -33,6 +33,13 @@ class ApplicationController < ActionController::Base
 		@auto=""
 		@usuario=""
 		@nosotros=""
+		# Buscamos usuario para la barra de navegacion superior
+		if session[:user_id]
+	    	@current_user = User.find session[:user_id]
+	    	@current_user_name = @current_user.nombre
+		else
+		    @current_user_name = "Login"
+		end
 	end
   
 end

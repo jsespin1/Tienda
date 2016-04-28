@@ -1,3 +1,4 @@
+//SIGN UP - LOGIN
 
 div.sign_form{
 	display:inline-block;
@@ -43,7 +44,7 @@ h2.crear_cuenta{
 input.text-field{
 	display:inline-block;
 	float:right;
-	margin-right:40px;
+	margin-right:30px;
 	border:none;
 	border-bottom-style:solid;
 	width:160px;

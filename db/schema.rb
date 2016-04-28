@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160428134644) do
 
   # These are extensions that must be enabled in order to support this database
@@ -21,8 +22,10 @@ ActiveRecord::Schema.define(version: 20160428134644) do
     t.string   "email"
     t.string   "encrypted_password"
     t.string   "salt"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "nombre"
+    t.string   "apellido",           default: ""
     t.boolean  "admin"     ,         defauls: false
   end
 
