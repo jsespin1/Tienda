@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
   end
 
 
+
   def login_attempt
     authorized_user = User.authenticate(params[:session][:username_or_email],params[:session][:login_password])
     if authorized_user

@@ -1,3 +1,149 @@
+// GRIDS
+
+div.profile_form{
+	display:inline-block;
+}
+
+div.profile-nav{
+	float:left;
+	width:25%;
+	padding:20px;
+}
+div.my-account{
+	float:left;
+	width:60%;
+	padding:20px;
+}
+
+
+
 // PROFILE
+
+div.user-info{
+	display:inline-block;
+}
+
+div.info-izquierda{
+	float:left;
+	width:30%;
+	padding-right:10px;
+	border-top: 1px solid #bcbaba;
+	padding-top:10px;
+}
+
+div.info-derecha{
+	display:inline-block;
+	float:left;
+	width:60%;
+	border-top: 1px solid #bcbaba;
+	padding-top:10px;
+}
+
+h1.crear_cuenta{
+	font-size: 22px;
+	font-weight: normal;
+	padding-bottom: 10px;
+}
+
+h2.crear_cuenta{
+	font-size: 14px;
+	font-weight: normal;
+	padding-top:30px;
+}
+
+ul.profile_nav{
+	width:200px;
+	border-top: 1px solid #bcbaba;
+	border-bottom: 1px solid #bcbaba;
+}
+
+li.lateral{
+	padding-bottom: 15px;
+	padding-top: 15px;
+	padding-left:15px;
+	font-family: "Franklin Gothic Book","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 11px;
+	text-transform: uppercase;
+}
+
+
+a{
+	text-decoration: none;
+	color:inherit;
+	width:350px;
+	height:20px;
+	padding-top: 25px;
+	font-size: 11px;
+	color: #202020;
+	text-transform: uppercase;
+	font-family: "Franklin Gothic Book","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight:normal;
+}
+
+a:hover{
+	color: #fc3;
+}
+
+h2{
+	font-size: 18px;
+	font-weight: normal;
+	color: #202020;
+	text-transform: uppercase;
+	font-family: "Franklin Gothic Book","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+h3{
+	font-size: 14px;
+	font-weight: normal;
+	color: #202020;
+	text-transform: uppercase;
+	font-family: "Franklin Gothic Book","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+h2.User_Header{
+	padding-left:30px;
+}
+
+p.info-container{
+	border-top: 1px solid #bcbaba;
+	text-transform: uppercase;
+	padding-top:20px;
+	font-family: "Franklin Gothic Book","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 11px;
+}
+
+a.label{
+	width:100px;
+}
+
+input.text-field{
+	display:inline-block;
+	margin-left:30px;
+	border:none;
+	border-bottom-style:solid;
+	width:160px;
+	height:22px;
+ 	border: 1px solid #bcbaba;
+    outline: 0px solid #CCC;
+    background-color: cornsilk;
+    text-transform: uppercase;
+    font-size: 9px;
+}
+
+input.submit{
+	background-color: #fc3;
+	margin-top: 25px;
+	border: 1px solid #bcbaba;
+    outline: 0px solid #CCC;
+    width:140px;
+    border-bottom-style:solid;
+}
+
+
+
+
+
+
+
 
 

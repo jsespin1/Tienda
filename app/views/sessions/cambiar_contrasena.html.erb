@@ -1,0 +1,39 @@
+<%= stylesheet_link_tag    'sessions', media: 'all', 'data-turbolinks-track' => true %>
+
+<h2 class='User_Header'>Bienvenido, <%=@current_user.username%> ! </h2>
+
+
+<% @page_title = "User | Profile" %>
+<div class="profile_form">
+
+
+  <div class="profile-nav">
+
+  	<%= render :partial => "sessions/profilenav" %>
+
+
+  </div>
+
+  <div class="my-account">
+
+  	<h2>Editar Cuenta</h2>
+
+  	<div class="overview">
+  		<div class="user-info">
+          <%= form_for(:user, :url => {:controller => 'users', :action => 'update_contrasena'}, :html => {:class => "form_for_sign"}) do |f| %>
+            <p class="info-container"> Nueva Contraseña <%= f.password_field :password, :class => "text-field"%> </p>
+            <p class="info-container"> Confirmar Contraseña <%= f.password_field :password_confirmation, :class => "text-field"%> </p>
+            <%= f.submit :Update, :class => "submit" %>
+          <% end %>
+
+  		</div>
+
+
+  	</div>
+
+
+  </div>
+
+
+
+</div>

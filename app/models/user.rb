@@ -4,7 +4,10 @@ class User < ActiveRecord::Base
 
   EMAIL_REGEX = /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z/i
   validates :nombre, :presence => true, :length => { :in => 2..20 }
-  validates :apellido, :length => { :in => 1..25 }
+  validates :apellido, :length => { maximum: 25 }
+  validates :direccion, :length => { maximum: 25 }
+  validates :comuna, :length => { maximum: 20 }
+  validates :pais, :length => { maximum: 15 }
   validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20 }
   validates :email, :presence => true, :uniqueness => true, :format => EMAIL_REGEX
   validates :password, :confirmation => true #password_confirmation attr
@@ -31,11 +34,13 @@ class User < ActiveRecord::Base
 
   
   def encrypt_password
+    #Encriptar varias veces + BCrypt
     if password.present?
       self.salt= Digest::SHA1.hexdigest("# We add {email} as unique value and #{Time.now} as random value")
       self.encrypted_password = Digest::SHA1.hexdigest("#{salt}+#{password}")
     end
   end
+
   def clear_password
     self.password = nil
   end

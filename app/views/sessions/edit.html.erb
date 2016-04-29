@@ -1,0 +1,42 @@
+<%= stylesheet_link_tag    'sessions', media: 'all', 'data-turbolinks-track' => true %>
+
+<h2 class='User_Header'>Bienvenido, <%=@current_user.username%> ! </h2>
+
+
+<% @page_title = "User | Profile" %>
+<div class="profile_form">
+
+
+  <div class="profile-nav">
+
+  	<%= render :partial => "sessions/profilenav" %>
+
+
+  </div>
+
+  <div class="my-account">
+
+  	<h2>Editar Cuenta</h2>
+
+  	<div class="overview">
+  		<div class="user-info">
+          <%= form_for(:user, :url => {:controller => 'users', :action => 'update'}, :html => {:class => "form_for_sign"}) do |f| %>
+            <p class="info-container"> Nombre <%= f.text_field :nombre, :class => "text-field"%> </p>
+            <p class="info-container"> Apellido <%= f.text_field :apellido, :class => "text-field"%> </p>
+            <p class="info-container"> Direccion <%= f.text_field :direccion, :class => "text-field"%> </p>
+            <p class="info-container"> Comuna <%= f.text_field :comuna, :class => "text-field"%> </p>
+            <p class="info-container"> Pais <%= f.text_field :pais, :class => "text-field"%> </p>
+            <%= f.submit :Update, :class => "submit" %>
+          <% end %>
+
+  		</div>
+
+
+  	</div>
+
+
+  </div>
+
+
+
+</div>

@@ -20,6 +20,14 @@ Rails.application.routes.draw do
 
   post 'users/create', to: 'users#create'
 
+  get 'users/edit', to: 'users#edit', :as => :edit_user
+
+  post 'users/update', to: 'users#update'
+
+  get 'users/cambiar_contrasena', to: 'users#cambiar_contrasena', :as => :cambiarcontrasena_user
+
+  post 'users/update_contrasena', to: 'users#update_contrasena'
+
   get 'admin/login', :as => :admin_login
 
   get 'admin/profile'
