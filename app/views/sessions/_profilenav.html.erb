@@ -1,22 +1,11 @@
-<%= stylesheet_link_tag    'sessions', media: 'all', 'data-turbolinks-track' => true %>
+<div>Soy la navbar de profile</div>
 
 
-
-
-	<ul class="profile_nav"> 
-
-		<%= link_to session_profile_path(@user) do %>
-                <li class="lateral">Información</li>
-    	<% end %>
-
-    	<%= link_to edit_user_path(@user) do %>
-                <li class= "lateral">Cuenta/Dirección</li>
-    	<% end %>
-
-    	<%= link_to cambiarcontrasena_user_path(@user) do %>
-                <li class= "lateral">Seguridad</li>
-    	<% end %>
-
-
-
-	</ul>
+<%= form_for(:user, :url => {:controller => 'users', :action => 'create'}, :html => {:class => "form_for_sign"}) do |f| %>
+    <h2 class="crear_cuenta">Información Personal</h1>
+    <p class="info-container"> Nombre <span class="text-label"><%= @user.nombre + " " + @user.apellido%> </p>
+    <p class="info-container"> Apellido <%= f.text_field :apellido, :class => "text-field"%> </p>
+    <h2 class="crear_cuenta">Información Cuenta</h1>
+    <p class="info-container"> Correo <span class="text-label"><%= @user.email%> </p>
+    <p class="info-container"> Contraseña <%= f.password_field :password, :class => "text-field"%></p>
+  <% end %>

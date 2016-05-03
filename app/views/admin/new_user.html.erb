@@ -15,24 +15,8 @@
     <p class="info-container"> Correo <%= f.text_field :email, :class => "text-field"%> </p>
     <p class="info-container"> Contraseña <%= f.password_field :password, :class => "text-field"%></p>
     <p class="info-container"> Confirmación Contraseña <%= f.password_field :password_confirmation, :class => "text-field"%> </p>
-    <h2 class="crear_cuenta">Direccion</h1>
-    <p class="info-container"> Direccion <%= f.text_field :direccion, :class => "text-field"%> </p>
-    <p class="info-container"> Comuna <%= f.text_field :comuna, :class => "text-field"%> </p>
-    <p class="info-container"> Pais <%= f.text_field :pais, :class => "text-field"%> </p>
     <%= f.submit :Register, :class => "submit" %>
   <% end %>
-
-
-
-  <div class="already_form">
-    
-    <h2 class="registrado">¿Ya Tienes Cuenta?</h2>
-
-    <%= button_to "Login", sessions_login_path,
-                        :class => 'submit', :method => :get %>
-
-
-  </div>
 
 
 </div>
@@ -44,5 +28,3 @@
     <% end %>
     </ul>
   <% end %>
-
-
