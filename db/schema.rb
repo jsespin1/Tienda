@@ -11,11 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
+
 ActiveRecord::Schema.define(version: 20160428230344) do
-=======
-ActiveRecord::Schema.define(version: 20160428134644) do
->>>>>>> rama_admin
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,16 +24,13 @@ ActiveRecord::Schema.define(version: 20160428134644) do
     t.string   "salt"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.boolean  "admin"
     t.string   "nombre"
     t.string   "apellido",           default: ""
-<<<<<<< HEAD
-    t.boolean  "admin"
+    t.boolean  "admin",              default: false
     t.string   "direccion",          default: ""
     t.string   "comuna",             default: ""
     t.string   "pais",               default: ""
-=======
->>>>>>> rama_admin
+
   end
 
 end
