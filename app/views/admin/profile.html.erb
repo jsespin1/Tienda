@@ -1,22 +1,7 @@
-
 <%= stylesheet_link_tag    'sessions', media: 'all', 'data-turbolinks-track' => true %>
 
 <div class="container">
 	
 	<%= render :template => "sessions/profile" %>
 
-
-
-<div class="container">
-	
-	<%= render template: "sessions/profile" %>
-</div>
-<% @page_title = "UserAuth | Login" -%>
-<div class= "Matter">
-  <h1 class="crear_cuenta">Log in</h2>
-  <%= form_for(:admin, :url => {:controller => 'admin', :action => 'login_attempt'}, :html => {:class => "form_for_sign"}) do |f| %>
-    <p class="info-container">Username or Email <%= f.text_field :username_or_email, :class => "text-field" %></p> 
-    <p class="info-container">Password <%= f.password_field :login_password, :class => "text-field" %></p> 
-    <%= f.submit :Login, :class => "submit" %>
-  <% end %>
 </div>

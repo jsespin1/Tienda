@@ -24,8 +24,8 @@ class AdminController < ApplicationController
 
 
   def edit
-   
-    @user = User.find(params[:user_id])
+    set_tab
+    @user = User.find(session[:user_id])
   end
 
   def update
@@ -37,6 +37,20 @@ class AdminController < ApplicationController
 
     end
   end
+  def cambiar_contrasena
+    set_tab
+    @user = User.find(session[:user_id])
+    render 'admin/cambiar_contrasena'
+  end
+
+  def update_contrasena
+    @user = User.find(session[:user_id])
+    #authorized_user = User.authenticate(@user.username, params[:user][:current_password])
+    if @user.update_attributes(params[:user].permit(:password))
+      redirect_to session_profile_path(@user)
+    else
+    end
+  end
 
 
   def login_attempt
@@ -46,7 +60,7 @@ class AdminController < ApplicationController
       session[:user_id] = authorized_user.id
       redirect_to(:action => 'profile')
     else
-      redirect_to(:action => 'login')	
+      redirect_to(:action => 'login') 
     end
   end
 
@@ -64,20 +78,5 @@ class AdminController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :encrypted_password, :salt, :admin)
   end
-
-  def lista_usuarios
-    @all_users = User.all
-  end
-
-  def new_user
-
-    @user = User.new
-    
-  end
-  
-  def edit_user
-  
-      
-  end  
 
 end

@@ -17,10 +17,11 @@ class UsersController < ApplicationController
     if @user.save
     else
     end
-    redirect_to sessions_login_path
+    render "new"
   end
 
   def edit
+    set_tab
     @user = User.find(session[:user_id])
     render 'sessions/edit'
   end

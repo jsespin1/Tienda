@@ -3,25 +3,25 @@
 
 
 
-	<ul class="profile_nav"> 
+    <ul class="profile_nav"> 
 
-		<%= link_to admin_profile_path(@user) do %>
+        <%= link_to admin_profile_path(@user) do %>
                 <li class="lateral">Información</li>
-    	<% end %>
+        <% end %>
 
-        <!--
-    	<%= link_to admin_edit_path(@user) do %>
+
+        <%= link_to admin_edit_path(@user) do %>
                 <li class= "lateral">Cuenta/Dirección</li>
-    	<% end %>
-        -->
-    	<%= link_to cambiarcontrasena_user_path(@user) do %>
+        <% end %>
+
+        <%= link_to cambiarcontrasena_admin_path(@user) do %>
                 <li class= "lateral">Seguridad</li>
-    	<% end %>
+        <% end %>
 
 
-    	<%= link_to admin_listar_usuarios_path do %>
+        <%= link_to admin_listar_usuarios_path do %>
                 <li class= "lateral">Listar Usuarios</li>
-    	<% end %>
+        <% end %>
 
 
         <%= link_to new_user_admin_path do %>
@@ -34,4 +34,4 @@
 
 
 
-	</ul>
+    </ul>

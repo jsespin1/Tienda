@@ -1,15 +1,15 @@
 <%= stylesheet_link_tag    'sessions', media: 'all', 'data-turbolinks-track' => true %>
 
 <div class="profile-nav">
-	
-	<%= render :partial => "profilenav" %>
+  
+  <%= render :partial => "profilenav" %>
 
 </div>
 
 
 <div class="my-account">
 
-  	<h2>Editar Cuenta</h2>
+    <h2>Editar Cuenta</h2>
 
 
           <%= form_for(:user, :url => {:controller => 'admin', :action => 'update'}, :html => {:class => "form_for_sign"}) do |f| %>

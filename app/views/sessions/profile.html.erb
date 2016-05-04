@@ -3,19 +3,14 @@
 <h2 class='User_Header'>Bienvenido, <%=@current_user.username%> ! </h2>
 
 
-<% if @current_user.admin %>
-<h2> ADMIN </h2>
-<%end%>
-
-
 <% @page_title = "User | Profile" %>
 <div class="profile_form">
 
 
   <div class="profile-nav">
 
-
   	<%= render :partial => "profilenav" %>
+
 
   </div>
 
@@ -64,4 +59,3 @@
 
 
 </div>
-
