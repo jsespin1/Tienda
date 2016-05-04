@@ -20,7 +20,7 @@ main {
 
 .p-header{
 	display: inline;
-	width:100%;
+	width: 100%;
 	float: left;
 }
 
@@ -44,7 +44,7 @@ div.nav_der {
 
 li.nav_e{
 	display:block;
-	width:185px;
+	width: 185px;
 	float:left;
 	background-color: cornsilk;
 }
@@ -179,7 +179,7 @@ div.page-wrapper{
 
 div.title-container{
 	display:inline-block
-	width:100%;
+	width: 100%;
 	height:20px;
 }
 div.line-container{
@@ -197,7 +197,7 @@ div.line{
 
 span.title{
 	height:20px;
-	width:100px;
+	width: 100px;
 	float:left;
 	font-family: 'Century Gothic';
 	color:#fc3;
