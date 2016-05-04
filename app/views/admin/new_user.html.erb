@@ -1,12 +1,24 @@
-<!-- Esta pagina corresponde a users/new -->
-<%= stylesheet_link_tag    'users', media: 'all', 'data-turbolinks-track' => true %>
+<%= stylesheet_link_tag    'sessions', media: 'all', 'data-turbolinks-track' => true %>
 
-<% @page_title = "UserAuth | Signup" %>
-<div class="sign_form">
+<h2 class='User_Header'>Bienvenido, <%=@current_user.username%> ! </h2>
 
-  <h1 class="crear_cuenta">Crear Nueva Cuenta</h1>
+
+<% @page_title = "User | Signup" %>
+<div class="profile_form">
+
+
+  <div class="profile-nav">
+
+  	<%= render :partial => "profilenav" %>
+
+
+  </div>
+
+  <div class="my-account">
+
+  <h2 class="crear_cuenta">Crear Nueva Cuenta</h2>
   
-  <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}, :html => {:class => "form_for_sign"}) do |f| %>
+  <%= form_for(:user, :url => {:controller => 'admin', :action => 'create'}, :html => {:class => "form_for_sign"}) do |f| %>
     <h2 class="crear_cuenta">Información Personal</h1>
     <p class="info-container"> Nombre <%= f.text_field :nombre, :class => "text-field"%> </p>
     <p class="info-container"> Apellido <%= f.text_field :apellido, :class => "text-field"%> </p>
@@ -19,18 +31,10 @@
     <p class="info-container"> Direccion <%= f.text_field :direccion, :class => "text-field"%> </p>
     <p class="info-container"> Comuna <%= f.text_field :comuna, :class => "text-field"%> </p>
     <p class="info-container"> Pais <%= f.text_field :pais, :class => "text-field"%> </p>
+    <p class="info-container"> Administrador<%= f.check_box :admin%> </p>
     <%= f.submit :Register, :class => "submit" %>
   <% end %>
 
-
-
-  <div class="already_form">
-
-    <h2 class="registrado">¿Ya Tienes Cuenta?</h2>
-
-    <%= button_to "Login", sessions_login_path,
-                        :class => 'submit', :method => :get %>
-  </div>
 
 
 </div>
@@ -42,3 +46,10 @@
     <% end %>
     </ul>
   <% end %>
+
+
+  </div>
+
+
+
+</div>

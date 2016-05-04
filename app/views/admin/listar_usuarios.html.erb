@@ -1,0 +1,37 @@
+
+<div class="profile-nav">
+    
+  	<%= render :partial => "profilenav" %>
+
+
+</div>
+
+<div class="lista_usuarios">
+	<table border="1">
+		<tr>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Mail</th>
+			<th>ID</th>
+			<th>Admin</th>
+			<th>Direccion</th>
+			<th>Comuna</th>
+			<th>Pais</th>
+			<th>Bloqueado</th>
+		</tr>
+		
+		<% @all_users.each do |user| %>
+			<tr>
+	    	<td> <%= link_to user.nombre, admin_edit_path(:user_id => user.id) %></td>
+	    	<td> <%= user.apellido%></td> 
+	    	<td> <%= user.email%> </td>
+	    	<td> <%= user.id%> </td>
+	    	<td> <% if user.admin %> Si <% else %> No <%end%></td>	
+	    	<td> <%= user.direccion%> </td>	 
+	    	<td> <%= user.comuna%> </td>
+	    	<td> <%= user.pais%> </td>	
+	    	<td> <% if user.bloqueado %> Si <% else %> No <%end%></td>	 
+	    	</tr> 
+		<% end %>	
+	</table>
+</div>

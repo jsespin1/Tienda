@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 	    	@current_user = User.find session[:user_id]
 	    	@current_user_name = @current_user.nombre
 		else
-		    @current_user_name = "Login"
+		    @current_user_name = "Login/Suscribirse"
 		end
 	end
   

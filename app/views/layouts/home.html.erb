@@ -1,23 +1,114 @@
 
+<%= stylesheet_link_tag    'autos', media: 'all', 'data-turbolinks-track' => true %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Tienda MAQUETA + CSS</title>
+  </head>
+  <body>
+    <main>
 
 
+      <div class="search-container">
+        <form id="search">
+        	<%=image_tag("search-icon.png", :class => "search-icon")%>
+        </form>
+      </div>
 
-<div class="home-container">
+      <ul class="path">
+        <li class="home path_e">
+            <a href="#" class="redirigir">Home</a>
+            <a class="gap">></a>
+        </li>
+        <li class="productos path_e">
+            <a href="#" class="redirigir current-path">Shop</a>
+        </li>
+      </ul>
 
-	<% if session[:user_id]==nil %>
-		<div class="home-container">
-	
-			<%= button_to "Registrate", new_user_path,
-              					:class => 'btn', :method => :get %>
+      <div class="page-wrapper">
+        <div class="content">
 
-		</div>
+          <div class="title-container">
+            <div class="line-container"><div class="line"></div></div>
+            <span class="title">Catálogo</span>
+            <div class="line-container"><div class="line"></div></div>
+          </div>
+
+          <div class="catalogo-container">
 
 
-	<% else %>
+            <ul class="fila-prod" id="fila-prod-1">
+              <li class="product-container">
+                <a class="product-image">
+                  
+                  <span class="product-name">Ferrari 458 Italia</span>
+                  <span class="product-price">$160.000</span>
+                  <%=image_tag("ferrari1.png", :class => "product-draw")%>
+                </a>
 
-		<span>Ya te has suscrito a nuestra página!!</span>
-        
-    <% end %>
-	
+              </li>
+            </ul>
 
-</div>
+            <ul class="fila-prod" id="fila-prod-2">
+              <li class="product-container">
+                <a class="product-image">
+                  
+                  <span class="product-name">Lamborghini Reventon</span>
+                  <span class="product-price">$210.000</span>
+                  <%= image_tag("lamborghini1.svg", :class => "product-draw")%>
+                </a>
+
+              </li>
+            </ul>
+
+            <ul class="fila-prod" id="fila-prod-3">
+              <li class="product-container">
+                <a class="product-image">                  
+                  <span class="product-name">Maserati GT</span>
+                  <span class="product-price">$120.000</span>
+                  <%=image_tag("maserati.png", :class => "product-draw")%>
+                </a>
+
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+      
+      
+      
+      <div class="footer-container">
+          <div class ="footer">
+            <div class="line-rec"></div>
+            <div class="footer-block">
+              <ul>
+              <li class="footer-info">
+                <span class="product-name"> Sobre Nosotros </span> 
+              </li>
+              <li class="footer-info">
+                <span class="product-name"> Contactanos </span> 
+              </li>
+              <li class="footer-info">
+                <span class="product-name"> Testimonios </span> 
+              </li>
+              <li class="footer-logo">
+                <a class="product-image"><%=image_tag("logo.png", :class => "logo")%></a>
+              </li>
+            </ul>
+
+            </div>
+          </div>
+        </div>
+
+      <div class="button-container">      
+        <button type="button" class="button-volver">Home</button>
+      </div>
+
+      
+    </main>
+  </body>
+</html>

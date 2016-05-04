@@ -5,22 +5,33 @@
 
 	<ul class="profile_nav"> 
 
-		<%= link_to session_profile_path(@user) do %>
+		<%= link_to admin_profile_path(@user) do %>
                 <li class="lateral">Información</li>
     	<% end %>
 
-    	<%= link_to edit_user_path(@user) do %>
+        <!--
+    	<%= link_to admin_edit_path(@user) do %>
                 <li class= "lateral">Cuenta/Dirección</li>
     	<% end %>
-
+        -->
     	<%= link_to cambiarcontrasena_user_path(@user) do %>
                 <li class= "lateral">Seguridad</li>
     	<% end %>
 
 
+    	<%= link_to admin_listar_usuarios_path do %>
+                <li class= "lateral">Listar Usuarios</li>
+    	<% end %>
+
+
+        <%= link_to new_user_admin_path do %>
+                <li class= "lateral">Crear Usuarios</li>
+        <% end %>
+
         <%= link_to session_logout_path(@user) do %>
                 <li class= "lateral">Logout</li>
         <% end %>
+
 
 
 	</ul>

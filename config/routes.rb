@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   post 'sessions/login_attempt', to: 'sessions#login_attempt'
 
-  get 'sessions/logout', to: 'sessions#logout'
+  get 'sessions/logout', to: 'sessions#logout', :as => :session_logout
 
   root 'application#home'
 
@@ -30,9 +30,22 @@ Rails.application.routes.draw do
 
   get 'admin/login', :as => :admin_login
 
-  get 'admin/profile'
+  get 'admin/profile', :as => :admin_profile
   
   post 'admin/login_attempt', to: 'admin#login_attempt'
+
+  get 'admin/listar_usuarios'
+
+  get 'admin/new_user', :as => :new_user_admin
+
+  post 'admin/create', to: 'admin#create'
+
+  get 'admin/edit'
+
+  post 'admin/update', to:'admin#update'
+
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

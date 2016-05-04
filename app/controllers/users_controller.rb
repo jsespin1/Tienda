@@ -6,20 +6,18 @@ class UsersController < ApplicationController
   before_filter :set_tab, :only => [:edit, :cambiar_contrasena]
 
   def new
+    set_tab
     @user = User.new 
   end
 
   def create
+    puts params.inspect
   	params.permit!
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "You signed up successfully"
-      flash[:color]= "valid"
     else
-      flash[:notice] = "Form is invalid"
-      flash[:color]= "invalid"
     end
-    render "new"
+    redirect_to sessions_login_path
   end
 
   def edit
@@ -30,12 +28,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(session[:user_id])
     if @user.update_attributes(params[:user].permit(:nombre, :apellido, :direccion, :comuna, :pais))
-      flash[:notice] = "Datos Actualizados Correctamente"
-      flash[:color]= "valid"
       redirect_to session_profile_path(@user)
     else
-      flash[:notice] = "No Se Pudieron Actualizar Tus Datos"
-      flash[:color]= "invalid"
     end
   end
 
@@ -49,12 +43,8 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     #authorized_user = User.authenticate(@user.username, params[:user][:current_password])
     if @user.update_attributes(params[:user].permit(:password))
-      flash[:notice] = "Constraseña Actualizada"
-      flash[:color]= "valid"
       redirect_to session_profile_path(@user)
     else
-      flash[:notice] = "Constraseña Incorrecta"
-      flash[:color]= "invalid"
     end
   end
 

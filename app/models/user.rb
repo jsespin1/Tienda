@@ -1,4 +1,6 @@
+
 class User < ActiveRecord::Base
+
 
   attr_accessor :password, :password_confirmation
 
@@ -22,22 +24,22 @@ class User < ActiveRecord::Base
     else
       user = User.find_by_username(username_or_email)
     end
-    if user && (user.match_password(login_password) == user.encrypted_password)
+    if user && (user.match_password(login_password) == user.encrypted_password) && !user.bloqueado
       return user
     else
       return false
     end
   end   
   def match_password(login_password="")
-    encriptada = Digest::SHA1.hexdigest("#{salt}+#{login_password}")
+    encriptada = BCrypt::Engine.hash_secret(login_password, self.salt)
   end
 
   
   def encrypt_password
-    #Encriptar varias veces + BCrypt
+    #Encripta con BCrypt
     if password.present?
-      self.salt= Digest::SHA1.hexdigest("# We add {email} as unique value and #{Time.now} as random value")
-      self.encrypted_password = Digest::SHA1.hexdigest("#{salt}+#{password}")
+      self.salt = BCrypt::Engine.generate_salt
+      self.encrypted_password = BCrypt::Engine.hash_secret(password, salt)
     end
   end
 
