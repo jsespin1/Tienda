@@ -1,0 +1,422 @@
+/*Despues de aplicar márgenes, la página tiene un ancho de 720px*/
+
+
+html {
+  margin: 0 auto;
+}
+body {
+  /* de altura 100% */
+  margin: 0 auto;
+  background: #FFFEF9;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+main {
+	background: #FFFEF9;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+
+
+.p-header{
+	display: inline;
+	width: 100%;
+	float: left;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+div.nav_izq {
+    float: left;
+    position:relative;
+	left:-20%;
+}
+
+div.nav_der {
+    float: right;
+}
+
+li.nav_e{
+	display:block;
+	width: 185px;
+	float:left;
+	background-color: cornsilk;
+}
+
+li.nav_e:hover{
+	cursor:pointer;
+}
+
+div.nav_logo{
+	float:left;
+	position:relative;
+	right:-40%;
+}
+
+li span{
+	font-family: 'Century Gothic';
+	display: block;
+    color: black;
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 9px;
+    text-decoration: none;
+}
+
+#logo{
+	height:100px;
+}
+.icono{
+	position:relative;
+	right:-38%;
+	height:40px;
+	padding-top:5px;
+}
+
+li.nav_e:hover:not(.active) {
+	background-color: #fc3;
+	font-color: white;
+}
+
+
+li.active {
+    color: #fc3;
+    background-color: #2E2E2E;
+}
+span.active {
+    color: #fc3;
+    background-color: #2E2E2E;
+}
+
+.first{
+	border-right: 0.5px solid #fc3;
+}
+
+/*Icono search debajo del logo*/
+
+div.search-container{
+	height:22px;
+}
+div.search-container:hover{
+	cursor:pointer;
+}
+
+img.search-icon{
+	height:22px;
+	position:relative;
+	right:-49%;
+	padding-top:10px;
+}
+
+/*Ruta de la página*/
+
+ul.path{
+	clear:both;
+	border-width: 1px;
+	font-size:10px;
+	position: relative;
+    top: 30px;
+    right:-44%;
+    padding-top:20px;
+}
+
+li.path_e{
+	display:inline-block;
+	float:left;
+	height:22px;
+}
+
+span.gap{
+	display:inline-block;
+	position:relative;
+	vertical-align:top;
+	text-align:top;
+	height:20px;
+}
+
+li a{
+	font-family: 'Century Gothic';
+	color:black;	
+	font-size:14px;
+	padding-right:10px;
+	padding-left:5px;
+	text-decoration:none;
+	font-style: italic;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+li a.redirigir:hover{
+	color:#fc3;
+}
+
+li a{
+	cursor:pointer;
+}
+
+a.current-path{
+	font-weight:bold;
+}
+
+
+
+
+/* Ahora se procesa el contenedor de los productos - page-wrapper */
+
+div.page-wrapper{
+	clear:both;
+	margin-top:50px;
+    height:100%;
+}
+
+/* Vemos el titulo, que esta centrado, y manejamos las lineas que estan a los costados */
+
+div.title-container{
+	display:inline-block
+	width: 100%;
+	height:20px;
+}
+div.line-container{
+	display:block;
+	height:20px;
+	width:450px;
+	float:left;
+}
+
+div.line{
+	height:10px;
+	border-bottom-style: solid;
+	border-width: 1px;
+}
+
+span.title{
+	height:20px;
+	width: 100px;
+	float:left;
+	font-family: 'Century Gothic';
+	color:#fc3;
+	font-weight: normal;
+	font-style: italic;
+	font-size:20px;
+	vertical-align:top;
+	background-color:white;
+	text-align:center;
+}
+span.title:hover{
+	cursor:default;
+}
+
+/**/
+
+/*Ahora vemos el catálogo con productos: ul -> li.product-container -> a -> image, span.name, span.price */
+div.catalogo-container{
+	display:block;
+	min-height:100%;
+}
+
+li.product-container{
+	width:999px;
+	height:180px;
+	margin-top:30px;
+	background-color:#2E2E2E;
+}
+
+li > a > span.product-name{
+	float:left;
+	height:5px;
+	padding-left:15px;
+	padding-top:10px;
+	font-size:15px;
+	color:white;
+}
+li > a > span.product-price{
+	clear:both;
+	float:left;
+	padding-left:15px;
+	font-size:15px;
+	color:white;
+}
+
+span.product-price:hover, span.product-name:hover{
+	color:#fc3;
+}
+
+a.product-image{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img.product-draw{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:33%;
+    padding-top:25px;
+}
+
+
+
+/**/
+
+/*----------SECCION FOOTER------------*/
+
+div.line-rec{
+  height:10px;
+  padding-top:20px;
+  border-bottom-style: solid;
+  border-width: 1px;
+}
+
+div.line-rec-footer {
+    display: inline-block;
+    height: 20px;
+    width: 1000px;
+    float: left;
+}
+
+.footer-info{
+  float:left;
+  height: 150px;
+  margin-right: 20px;
+}
+.footer-logo{
+  float:right;
+  margin-top: 20px;
+}
+
+span.product-name:hover, span.product-info:hover, span.product-image:hover{
+	cursor:pointer;
+}
+
+/*Boton para móviles desaparece*/
+
+div.button-container{
+	display:none;
+	padding:40px;
+}
+button.button-volver{
+	position:relative;
+	left:43%;
+	width:150px;
+	height:60px;
+	color:white;
+	background-color:#fc3;
+	border-style:none;
+	font-size:150%;
+}
+button.button-volver:hover{
+	cursor:pointer;
+	border-style:solid;
+	border-color:#2E2E2E;
+	color:#2E2E2E;
+}
+
+
+
+
+/********************************************************************/
+
+
+/*RESOLUCIONES MENORES*/
+
+
+@media (max-width: 768px) {
+
+	div.content{
+		display:block;
+	}
+
+	div.title-container{
+		display:inline-block
+		width:95%;
+		height:40px;
+		padding-top:4%;
+	}
+
+	div.line-container{
+		display:block;
+		height:8px;
+		width:43%;
+		margin-left:1%;
+		float:left;
+	}
+	span.title{
+		font-size:200%;
+	}
+	ul.fila-product{
+		height:50%;
+	}
+
+	li.product-container{
+		display:inline-block;
+		width:100%;
+		height:50%;
+		margin-top:3%;
+	}
+	span.product-name{
+		padding-left:2%;
+		padding-top:3%;
+		font-size:100%;
+	}
+	span.product-price{
+		padding-left:2%;
+		font-size:100%;
+	}
+	img.product-draw{
+	    width:40%;
+	    height:80%;
+	    padding-top:25px;
+	}
+
+	#producto1{
+		padding-top:3px;
+	}
+	#producto2, #producto3{
+		padding-bottom:4%;
+	}
+
+	.footer-container{
+		display:none;
+	}
+
+	div.button-container{
+		display:block;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
