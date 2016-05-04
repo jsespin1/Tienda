@@ -44,7 +44,11 @@ Rails.application.routes.draw do
 
   post 'admin/update', to:'admin#update'
 
+  get 'admin/profile/lista_usuarios', to: 'admin#lista_usuarios'
 
+  get 'admin/profile/new_user', to: 'admin#new_user'
+
+  get 'admin/profile/edit_user', to: 'admin#edit_user'
 
 
 

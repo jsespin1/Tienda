@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160503231552) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,11 +27,15 @@ ActiveRecord::Schema.define(version: 20160503231552) do
     t.datetime "updated_at",                         null: false
     t.string   "nombre"
     t.string   "apellido",           default: ""
-    t.boolean  "admin"
+    t.boolean  "admin",              default: false
     t.string   "direccion",          default: ""
     t.string   "comuna",             default: ""
     t.string   "pais",               default: ""
+<<<<<<< HEAD
     t.boolean  "bloqueado",          default: false
+=======
+
+>>>>>>> 2c4000bdde04b8aebc2ecb7bc51644dfcf2d8cb3
   end
 
 end
