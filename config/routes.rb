@@ -53,7 +53,7 @@ Rails.application.routes.draw do
   get 'catalogo/index', :as => :catalogo_index
   get 'catalogo/autos', :as => :catalogo_autos
   get 'catalogo/perros', :as => :catalogo_perros
-  et 'catalogo/promociones', :as => :catalogo_promociones
+  get 'catalogo/promociones', :as => :catalogo_promociones
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
