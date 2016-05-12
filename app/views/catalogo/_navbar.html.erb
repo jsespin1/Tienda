@@ -1,0 +1,25 @@
+<%= stylesheet_link_tag    'catalogo', media: 'all', 'data-turbolinks-track' => true %>
+
+
+
+
+    <ul class="catalogo_nav"> 
+
+        <%= link_to catalogo_autos_path do %>
+                <li class="lateral">>  Autos</li>
+        <% end %>
+
+
+        <%= link_to catalogo_perros_path do %>
+                <li class= "lateral">>  Perros</li>
+        <% end %>
+
+        <%= link_to catalogo_promociones_admin_path do %>
+                <li class= "lateral">>  Promociones</li>
+        <% end %>
+
+
+
+
+
+    </ul>

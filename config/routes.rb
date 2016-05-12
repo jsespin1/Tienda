@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'catalogo#index'
+
   get 'sessions/login', :as => :sessions_login
 
   get 'application/home', :as => :home
@@ -13,8 +15,6 @@ Rails.application.routes.draw do
   post 'sessions/login_attempt', to: 'sessions#login_attempt'
 
   get 'sessions/logout', to: 'sessions#logout', :as => :session_logout
-
-  root 'application#home'
 
   get 'users/new', :as => :new_user
 
@@ -48,7 +48,12 @@ Rails.application.routes.draw do
 
   post 'admin/update_contrasena', to: 'admin#update_contrasena'
 
+  #--------------------------------Catalogo---------------------------------#
 
+  get 'catalogo/index', :as => :catalogo_index
+  get 'catalogo/autos', :as => :catalogo_autos
+  get 'catalogo/perros', :as => :catalogo_perros
+  et 'catalogo/promociones', :as => :catalogo_promociones
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

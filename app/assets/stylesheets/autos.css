@@ -25,12 +25,7 @@ main {
 }
 
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
+
 
 div.nav_izq {
     float: left;
