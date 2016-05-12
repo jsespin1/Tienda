@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subtotal: 1
+  descuento: 1
+  nombre: MyString
+  comentario: MyText
+  active: false
+  imagen: MyString
+
+two:
+  subtotal: 1
+  descuento: 1
+  nombre: MyString
+  comentario: MyText
+  active: false
+  imagen: MyString

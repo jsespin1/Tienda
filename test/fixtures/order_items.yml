@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 
+  promocion_id: 
+  order_id: 
+  precio_unitario: 1
+  cantidad: 1
+  precio_total: 1
+
+two:
+  product_id: 
+  promocion_id: 
+  order_id: 
+  precio_unitario: 1
+  cantidad: 1
+  precio_total: 1

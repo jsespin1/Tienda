@@ -1,6 +1,7 @@
 
 class User < ActiveRecord::Base
 
+  has_many :orders
 
   attr_accessor :password, :password_confirmation
 
