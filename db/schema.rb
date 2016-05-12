@@ -31,11 +31,8 @@ ActiveRecord::Schema.define(version: 20160503231552) do
     t.string   "direccion",          default: ""
     t.string   "comuna",             default: ""
     t.string   "pais",               default: ""
-<<<<<<< HEAD
     t.boolean  "bloqueado",          default: false
-=======
 
->>>>>>> 2c4000bdde04b8aebc2ecb7bc51644dfcf2d8cb3
   end
 
 end
