@@ -48,6 +48,9 @@ li.nav_e{
 	float:left;
 	background-color: cornsilk;
 }
+li.contenedor_producto{
+	list-style-type: none;
+}
 
 li.nav_e:hover{
 	cursor:pointer;

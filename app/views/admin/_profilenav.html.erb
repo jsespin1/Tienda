@@ -28,6 +28,14 @@
                 <li class= "lateral">Crear Usuarios</li>
         <% end %>
 
+        <%= link_to editar_catalogo_path() do %>
+                <li class= "lateral">Editar Catalogo</li>
+        <% end %>
+
+        <%= link_to editar_promociones_path() do %>
+                <li class= "lateral">Editar Promociones</li>
+        <% end %>
+
         <%= link_to session_logout_path(@user) do %>
                 <li class= "lateral">Logout</li>
         <% end %>

@@ -1,0 +1,47 @@
+<%= stylesheet_link_tag    'editar_catalogo', media: 'all', 'data-turbolinks-track' => true %>
+
+<div class="profile-nav">
+  
+  <%= render :partial => "profilenav" %>
+
+</div>
+
+<div class="my-account">
+  <div class ="contenedor_titulo">
+    <h2>Editar Catalogo</h2>
+    <%= button_to 'Agregar productos', {:controller => "admin", :action => "agregar_producto"} , :method=>:post  %>
+
+  </div>
+  
+
+  <div class="contenedor_catalogo">
+  <%@productos.each do |p| %>
+  
+
+    <li class = "contenedor_producto">
+      <a class = "imagen">
+        <%=image_tag(p.imagen, :class => "product-draw")%>
+        <span class = "nombre_producto"><%=p.nombre%></span>
+        <span class = "precio_producto"><%=p.precio%></span>
+        <span class = "descripcion_producto"><%=p.descripcion%></span>
+        
+
+      </a>
+
+    </li>
+  
+
+  <div class ="contenedor_botones">
+    
+   <%= button_to 'Editar', {:controller => "admin", :action => "editar_producto", :prod_id => p.id} , :method=>:post  %>
+   <%= button_to "Eliminar", {:controller => "admin", :action => "eliminar_producto", :prod_id => p.id }, :method => :delete %>
+    
+  </div>
+  
+  <%end%>
+
+  </div>
+
+
+</div>
+

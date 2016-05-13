@@ -48,6 +48,20 @@ Rails.application.routes.draw do
 
   post 'admin/update_contrasena', to: 'admin#update_contrasena'
 
+  get 'admin/editar_catalogo', to: 'admin#editar_catalogo', :as => :editar_catalogo
+
+  post 'admin/editar_producto', to: 'admin#editar_producto', :as => :editar_producto
+
+  post 'admin/actualizar_producto', to: 'admin#actualizar_producto'
+
+  delete 'admin/eliminar_producto', to: 'admin#eliminar_producto'
+
+  post 'admin/agregar_producto', to: 'admin#agregar_producto'
+
+  post 'admin/agregar', to: 'admin#agregar'
+
+  get 'admin/editar_promociones', to: 'admin#editar_promociones', :as => :editar_promociones
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

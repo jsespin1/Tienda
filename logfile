@@ -1,0 +1,10 @@
+LOG:  database system was shut down at 2016-05-12 12:33:52 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+FATAL:  database "Tienda_development" does not exist
+FATAL:  database "Tienda_development" does not exist
+FATAL:  database "Tienda_development" does not exist
+ERROR:  duplicate key value violates unique constraint "products_pkey"
+DETAIL:  Key (id)=(2) already exists.
+STATEMENT:  INSERT INTO "products" ("nombre", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def create
     puts params.inspect
-  	params.permit!
+  	
     @user = User.new(params[:user])
     if @user.save
     else

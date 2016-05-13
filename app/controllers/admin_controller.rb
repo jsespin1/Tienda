@@ -79,4 +79,51 @@ class AdminController < ApplicationController
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :encrypted_password, :salt, :admin)
   end
 
+  def editar_catalogo
+
+    @productos = Product.all
+    
+  end
+
+  def editar_producto
+
+    @producto = Product.find(params[:prod_id])
+  end
+
+  def actualizar_producto
+    @producto = Product.find(params[:producto][:prod_id])
+    if @producto.update_attributes(params[:producto].permit(:nombre, :precio, :descripcion, :tipo, :imagen))
+      redirect_to editar_catalogo_path(@current_user)
+    else
+    end
+  end
+
+  def eliminar_producto
+
+    Product.delete(params[:prod_id])
+    redirect_to editar_catalogo_path(@current_user)
+    
+  end
+
+  def agregar
+
+    puts "PARAMETROS ->" + params.inspect
+    @producto = Product.new(params[:producto].permit(:nombre, :precio, :descripcion, :tipo, :imagen))
+
+    if @producto.save
+    else
+    end
+    redirect_to editar_catalogo_path()
+
+    
+  end
+
+  def editar_promociones
+
+    @promociones = Promocion.all
+    
+  end
+
+
+
 end
