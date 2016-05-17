@@ -1,0 +1,17 @@
+
+
+  <% @items.each do |i| %>
+  
+      <ul class="fila-prod" id="fila-prod-1">
+          <li class="product-container">
+            <a class="product-image">
+              
+              <span class="product-name"><%= i.nombre %></span>
+              <span class="product-price"><%= i.precio %></span>
+              <%=image_tag(i.imagen, :class => "product-draw")%>
+            </a>
+
+          </li>
+      </ul>
+
+  <% end %>

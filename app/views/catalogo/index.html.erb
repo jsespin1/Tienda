@@ -34,23 +34,18 @@
 
     <div class="catalogo">
 
-        <h2><%= t 'catalogo.index.title' %></h2>
+        <% if @vista=="index" %>
+            <h2><%= t 'catalogo.index.title' %></h2>
+        <% elsif @vista=="autos" %>  
+            <h2><%= t 'catalogo.autos.title' %></h2>        
+        <% elsif @vista=="perros" %>  
+            <h2><%= t 'catalogo.perros.title' %></h2> 
+        <% else %>     
+            <h2><%= t 'catalogo.promocions.title' %></h2> 
+        <% end %> 
 
+        <%= render :partial => "items" %>    
 
-        <% @items.each do |i| %>
-          <ul class="fila-prod" id="fila-prod-1">
-              <li class="product-container">
-                <a class="product-image">
-                  
-                  <span class="product-name"><%= i.nombre %></span>
-                  <span class="product-price"><%= i.precio %></span>
-                  <%=image_tag(i.imagen, :class => "product-draw")%>
-                </a>
-
-              </li>
-          </ul>
-
-        <% end %>
 
     </div>
 </div>
