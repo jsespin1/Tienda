@@ -13,7 +13,9 @@ class Catalogo < ActiveRecord::Base
 	end
 
 	def self.getPromociones
-		items = Promocion.where(:cantidad_productos > 0, :active => true)
+		#items = Promocion.all(:conditions => ["cantidad_productos > ? and active = ?", 0, true])
+		items = Promocion.where('cantidad_productos > 0 AND active = true')
+		#Client.all(:conditions => ["created_at > ? AND created_at < ?", params[:start_date], params[:end_date]])
 	end
 
 end

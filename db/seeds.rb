@@ -35,7 +35,7 @@ boxer = Product.create! id: 7, nombre: "Boxer", tipo: "perro", precio: 2000, des
 Promocion.delete_all
 comentario1 =  "Solo por tiempo limitado aprovecha de llevarte a un modico precio el nuevo Maserati Gran Turismo con su respectivo guardián
 Esta es una camada de Boxer importados directamente desde Alemania. Criados para ser defensivos y amistosos."
-promocion1 = Promocion.create! id: 1, nombre: "Maserati+Boxer", cantidad_productos: 2, descuento: 30000, comentario: comentario1, active: true, imagen: "promocion1.png"
+promocion1 = Promocion.create! id: 1, nombre: "Maserati+Boxer", cantidad_productos: 2, descuento: 30000, comentario: comentario1, active: true, imagen: "promocion1.jpg"
 promocion1.products << maserati
 promocion1.products << boxer
 promocion1.save

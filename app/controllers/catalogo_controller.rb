@@ -21,7 +21,6 @@ class CatalogoController < ApplicationController
 	def promociones
 		@items = Catalogo.getPromociones
 		@vista = "promociones"
-		render 'index'
 	end
 
 
