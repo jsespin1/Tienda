@@ -1,0 +1,21 @@
+
+es:
+  catalogo:
+    index:
+      title: "Catálogo General"
+    perros:
+      title: "Catálogo de Perros"
+    autos:
+      title: "Catálogo de Autos"
+    Promocion:
+      title: "Catálogo de Promociones"
+    categories:
+      category: "Categorías"
+      car: "Autos"
+      dog: "Perros"
+      deal: "Promociones"
+  navbar:
+    cart: "Carro"
+    catalog: "Catálogo"
+    login: "Ingresar"
+    us: "Nosotros"

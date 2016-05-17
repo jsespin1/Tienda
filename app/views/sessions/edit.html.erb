@@ -9,7 +9,7 @@
 
   <div class="profile-nav">
     
-  	<%= render :partial => "profilenav" %>
+  	<%= render :partial => "sessions/profilenav" %>
 
 
   </div>
@@ -25,8 +25,7 @@
             <p class="info-container"> Apellido <%= f.text_field :apellido, :class => "text-field"%> </p>
             <p class="info-container"> Direccion <%= f.text_field :direccion, :class => "text-field"%> </p>
             <p class="info-container"> Comuna <%= f.text_field :comuna, :class => "text-field"%> </p>
-            <p class="info-container"> Pais <%= f.text_field :pais, :class => "text-field"%> </p>
-            <%if @current_user.admin%> <p class="info-container">CAMBIARLO A ADMINISTRADOR CON RADIO B<%= f.text_field :pais, :class => "text-field"%> </p><%end%> 
+            <p class="info-container"> Pais <%= f.text_field :pais, :class => "text-field"%> </p> 
             <%= f.submit :Update, :class => "submit" %>
           <% end %>
 

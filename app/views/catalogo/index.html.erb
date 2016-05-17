@@ -16,7 +16,7 @@
       <a class="gap">></a>
     </li>
     <li class="productos path_e">
-      <a href="#" class="redirigir current-path">Catálogo</a>
+      <a href="#" class="redirigir current-path"><%= t 'navbar.catalog' %></a>
     </li>
   </ul>
 </div>
@@ -25,7 +25,7 @@
 <div class="catalogo-container">
     <div class="catalogo-nav">
 
-      <h2>Categorías</h2>
+      <h2><%= t 'catalogo.categories.category' %></h2>
       
       <%= render :partial => "navbar" %>
 
@@ -34,7 +34,7 @@
 
     <div class="catalogo">
 
-        <h2>Catálogo General</h2>
+        <h2><%= t 'catalogo.index.title' %></h2>
 
 
         <% @items.each do |i| %>

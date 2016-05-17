@@ -4,11 +4,22 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :set_logo
 
+  #CONFIGURACION DE IDIOMAS/LOCALIZACIÓN
+  before_action :set_locale
+
+  def set_locale
+	I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options(options={})
+	{ locale: I18n.locale }
+  end
+
   def home 
   	render 'layouts/home'
   end
 
-  
+  	#MANEJO DE USUARIOS
 	protected 
 	def authenticate_user
 	  if session[:user_id]
@@ -38,7 +49,7 @@ class ApplicationController < ActionController::Base
 	    	@current_user = User.find session[:user_id]
 	    	@current_user_name = @current_user.nombre
 		else
-		    @current_user_name = "Login/Suscribirse"
+		    @current_user_name = t 'navbar.login'
 		end
 	end
   

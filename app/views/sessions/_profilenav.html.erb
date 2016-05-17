@@ -5,20 +5,20 @@
 
 	<ul class="profile_nav"> 
 
-		<%= link_to session_profile_path(@user) do %>
+		<%= link_to session_profile_path do %>
                 <li class="lateral">Información</li>
     	<% end %>
 
-    	<%= link_to edit_user_path(@user) do %>
+    	<%= link_to edit_user_path do %>
                 <li class= "lateral">Cuenta/Dirección</li>
     	<% end %>
 
-    	<%= link_to cambiarcontrasena_user_path(@user) do %>
+    	<%= link_to cambiarcontrasena_user_path do %>
                 <li class= "lateral">Seguridad</li>
     	<% end %>
 
 
-        <%= link_to session_logout_path(@user) do %>
+        <%= link_to session_logout_path do %>
                 <li class= "lateral">Logout</li>
         <% end %>
 

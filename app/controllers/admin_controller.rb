@@ -12,7 +12,7 @@ class AdminController < ApplicationController
     params.permit!
     @user = User.new(params[:user])
     if @user.save
-      redirect_to admin_profile_path(@current_user)
+      redirect_to admin_profile_path
     else
       redirect_to new_user_admin_path
     end
@@ -25,14 +25,18 @@ class AdminController < ApplicationController
 
   def edit
     set_tab
-    @user = User.find(session[:user_id])
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+    else
+      @user = User.find(session[:user_id])
+    end
   end
 
   def update
     @user = User.find(params[:user][:user_id])
     puts "params" + params.inspect
     if @user.update_attributes(params[:user].permit(:nombre, :apellido, :direccion, :comuna, :pais, :admin, :bloqueado))
-      redirect_to admin_profile_path(@user)
+      redirect_to admin_profile_path
     else
 
     end
@@ -47,7 +51,7 @@ class AdminController < ApplicationController
     @user = User.find(session[:user_id])
     #authorized_user = User.authenticate(@user.username, params[:user][:current_password])
     if @user.update_attributes(params[:user].permit(:password))
-      redirect_to session_profile_path(@user)
+      redirect_to admin_profile_path
     else
     end
   end

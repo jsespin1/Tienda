@@ -1,60 +1,63 @@
 Rails.application.routes.draw do
 
-  root 'catalogo#index'
+  scope "(:locale)", locale: /es|en/ do
 
-  get 'sessions/login', :as => :sessions_login
+      root 'application#home'
 
-  get 'application/home', :as => :home
+      get 'sessions/login', :as => :sessions_login
 
-  get 'sessions/home'
+      get 'application/home', :as => :home
 
-  get 'sessions/profile', :as => :session_profile
+      get 'sessions/home'
 
-  get 'sessions/setting'
+      get 'sessions/profile', :as => :session_profile
 
-  post 'sessions/login_attempt', to: 'sessions#login_attempt'
+      get 'sessions/setting'
 
-  get 'sessions/logout', to: 'sessions#logout', :as => :session_logout
+      post 'sessions/login_attempt', to: 'sessions#login_attempt'
 
-  get 'users/new', :as => :new_user
+      get 'sessions/logout', to: 'sessions#logout', :as => :session_logout
 
-  post 'users/create', to: 'users#create'
+      get 'users/new', :as => :new_user
 
-  get 'users/edit', to: 'users#edit', :as => :edit_user
+      post 'users/create', to: 'users#create'
 
-  post 'users/update', to: 'users#update'
+      get 'users/edit', to: 'users#edit', :as => :edit_user
 
-  get 'users/cambiar_contrasena', to: 'users#cambiar_contrasena', :as => :cambiarcontrasena_user
+      post 'users/update', to: 'users#update'
 
-  post 'users/update_contrasena', to: 'users#update_contrasena'
+      get 'users/cambiar_contrasena', to: 'users#cambiar_contrasena', :as => :cambiarcontrasena_user
 
-  get 'admin/login', :as => :admin_login
+      post 'users/update_contrasena', to: 'users#update_contrasena'
 
-  get 'admin/profile', :as => :admin_profile
-  
-  post 'admin/login_attempt', to: 'admin#login_attempt'
+      get 'admin/login', :as => :admin_login
 
-  get 'admin/listar_usuarios'
+      get 'admin/profile', :as => :admin_profile
+      
+      post 'admin/login_attempt', to: 'admin#login_attempt'
 
-  get 'admin/new_user', :as => :new_user_admin
+      get 'admin/listar_usuarios'
 
-  post 'admin/create', to: 'admin#create'
+      get 'admin/new_user', :as => :new_user_admin
 
-  get 'admin/edit'
+      post 'admin/create', to: 'admin#create'
 
-  post 'admin/update', to:'admin#update'
+      get 'admin/edit'
 
-  get 'admin/cambiar_contrasena', to: 'admin#cambiar_contrasena', :as => :cambiarcontrasena_admin
+      get 'admin/cambiar_contrasena', to: 'admin#cambiar_contrasena', :as => :cambiarcontrasena_admin
 
-  post 'admin/update_contrasena', to: 'admin#update_contrasena'
+      post 'admin/update_contrasena', to: 'admin#update_contrasena'
 
-  #--------------------------------Catalogo---------------------------------#
+      #--------------------------------Catalogo---------------------------------#
 
-  get 'catalogo/index', :as => :catalogo_index
-  get 'catalogo/autos', :as => :catalogo_autos
-  get 'catalogo/perros', :as => :catalogo_perros
-  get 'catalogo/promociones', :as => :catalogo_promociones
+      get 'catalogo/index', :as => :catalogo_index
+      get 'catalogo/autos', :as => :catalogo_autos
+      get 'catalogo/perros', :as => :catalogo_perros
+      get 'catalogo/promociones', :as => :catalogo_promociones
+      
+  end
 
+   post 'admin/update', to:'admin#update'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

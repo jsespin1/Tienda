@@ -20,4 +20,32 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  catalogo:
+    index:
+      title: "Mixed Catalog"
+    perros:
+      title: "Dog Catalog"
+    autos:
+      title: "Car Catalog"
+    Promocion:
+      title: "Deals Catalog"
+    categories:
+      category: "Categories"
+      car: "Cars"
+      dog: "Dogs"
+      deal: "Deals"
+  navbar:
+    cart: "Cart"
+    catalog: "Catalog"
+    login: "Login"
+    us: "About Us"
+
+
+
+
+
+
+
+
+
+

@@ -11,8 +11,13 @@
             <% end %>
 
             <div class="nav_izq"> 
-              <li class="nav_e first <%= @tab==1 ? 'active' : '' %>" id="shop"><%=image_tag("carro"+ @carro+".png", :class => "icono")%><span class="navegacion <%= @tab==1 ? 'active' : '' %>">Shop</span></li>
-              <li class="nav_e" id="productos <%= @tab==2 ? 'active' : '' %>"><%=image_tag("auto"+ @auto+".png", :class => "icono")%><span class="navegacion <%= @tab==2 ? 'active' : '' %>">Productos</span></li>
+
+              <li class="nav_e first <%= @tab==1 ? 'active' : '' %>" id="shop"><%=image_tag("carro"+ @carro+".png", :class => "icono")%><span class="navegacion <%= @tab==1 ? 'active' : '' %>"><%= t 'navbar.cart' %></span></li>
+
+              <%= link_to catalogo_index_path do %>
+                  <li class="nav_e" id="productos <%= @tab==2 ? 'active' : '' %>"><%=image_tag("auto"+ @auto+".png", :class => "icono")%><span class="navegacion <%= @tab==2 ? 'active' : '' %>"><%= t 'navbar.catalog' %></span></li>
+              <% end %>
+
             </div>
 
             <div class="nav_der"> 
@@ -28,7 +33,7 @@
               <% end %>
 
             <% end %>
-              <li class="nav_e <%= @tab==4 ? 'active' : '' %>" id="nosotros"><%=image_tag("nosotros"+ @nosotros+".png", :class => "icono")%><span class="navegacion <%= @tab==4 ? 'active' : '' %>">Nosotros</span></li>             
+              <li class="nav_e <%= @tab==4 ? 'active' : '' %>" id="nosotros"><%=image_tag("nosotros"+ @nosotros+".png", :class => "icono")%><span class="navegacion <%= @tab==4 ? 'active' : '' %>"><%= t 'navbar.us' %></span></li>             
             </div>
 
           </ul>

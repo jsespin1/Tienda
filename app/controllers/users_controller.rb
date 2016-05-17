@@ -22,14 +22,18 @@ class UsersController < ApplicationController
 
   def edit
     set_tab
-    @user = User.find(session[:user_id])
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+    else
+      @user = User.find(session[:user_id])
+    end
     render 'sessions/edit'
   end
 
   def update
     @user = User.find(session[:user_id])
     if @user.update_attributes(params[:user].permit(:nombre, :apellido, :direccion, :comuna, :pais))
-      redirect_to session_profile_path(@user)
+      redirect_to session_profile_path
     else
     end
   end
@@ -44,7 +48,7 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     #authorized_user = User.authenticate(@user.username, params[:user][:current_password])
     if @user.update_attributes(params[:user].permit(:password))
-      redirect_to session_profile_path(@user)
+      redirect_to session_profile_path
     else
     end
   end
