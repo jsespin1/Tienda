@@ -85,7 +85,7 @@ class AdminController < ApplicationController
 
   def editar_catalogo
 
-    @productos = Product.all
+    @productos = Product.order(:nombre)
     puts "PARAMETROS ->" + @productos.inspect
     
   end
@@ -96,17 +96,24 @@ class AdminController < ApplicationController
   end
 
   def actualizar_producto
-    @producto = Product.find(params[:producto][:prod_id])
-    if @producto.update_attributes(params[:producto].permit(:nombre, :precio, :descripcion, :tipo, :imagen))
-      redirect_to editar_catalogo_path(@current_user)
-    else
-    end
+    puts "PARAMETROS ->" + params.inspect
+    @producto = Product.find(params[:producto][:id])
+    puts "PRODUCTO no editado -> "+ @producto.inspect
+    @producto.nombre = params[:producto][:nombre]
+    @producto.precio = params[:producto][:precio]
+    @producto.descripcion = params[:producto][:descripcion]
+    @producto.imagen = params[:producto][:imagen]
+
+    puts @producto.errors.full_messages
+    puts "PRODUCTO editado -> "+ @producto.inspect
+    @producto.save
+    redirect_to editar_catalogo_path();
   end
 
   def eliminar_producto
 
     Product.delete(params[:prod_id])
-    redirect_to editar_catalogo_path(@current_user)
+    redirect_to editar_catalogo_path()
     
   end
 
@@ -125,7 +132,7 @@ class AdminController < ApplicationController
 
   def editar_promociones
 
-    @promociones = Promocion.all
+    @promociones = Promocion.order(:nombre)
     
   end
 
@@ -183,6 +190,21 @@ class AdminController < ApplicationController
     redirect_to editar_promociones_path()
 
     
+  end
+
+  def eliminar_producto_promocion
+
+    @promo = Promocion.find(params[:prom_id])
+    @productos_promocion = @promo.products
+    
+  end
+
+  def quitar_producto_promocion
+
+    @producto = Product.find(params[:producto_id])
+    @promo = Promocion.find(params[:producto][:prom_id]) 
+    @promo.products.delete(@producto.id)
+    redirect_to editar_promociones_path()
   end
 
 

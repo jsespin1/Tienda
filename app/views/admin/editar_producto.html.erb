@@ -17,7 +17,7 @@
             <p class="info-container"> Precio <%= f.text_field :precio, :class => "text-field"%> </p>
             <p class="info-container"> Descripcion <%= f.text_field :descripcion, :class => "text-field"%> </p>
             <p class="info-container"> Imagen <%= f.text_field :imagen, :class => "text-field"%> </p>
-            <%= f.hidden_field :prod_id, :value => @producto.id %>
+            <%= f.hidden_field :id, :value => @producto.id %>
             <%= f.submit :Update, :class => "submit" %>
           <% end %>
 

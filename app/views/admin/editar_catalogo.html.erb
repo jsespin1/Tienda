@@ -36,7 +36,7 @@
   
 
   <div class ="contenedor_botones">
-    
+   
    <%= button_to 'Editar', {:controller => "admin", :action => "editar_producto", :prod_id => p.id} , :method=>:post  %>
    <%= button_to "Eliminar", {:controller => "admin", :action => "eliminar_producto", :prod_id => p.id }, :method => :delete %>
     
