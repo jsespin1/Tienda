@@ -5,15 +5,15 @@ class Catalogo < ActiveRecord::Base
 	end
 
 	def self.getAutos
-		items = Product.where(["tipo= ?", "auto"])
+		items = Product.where(:tipo => "auto", :active => true)
 	end
 
 	def self.getPerros
-		items = Product.where(["tipo= ?", "perro"])
+		items = Product.where(:tipo => "perro", :active => true)
 	end
 
 	def self.getPromociones
-		items = Promocion.all
+		items = Promocion.where(:cantidad > 0, :active => true)
 	end
 
 end

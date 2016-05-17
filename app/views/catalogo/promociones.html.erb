@@ -1,0 +1,50 @@
+<div class="search-container">
+  <form id="search">
+    <%=image_tag("search-icon.png", :class => "search-icon")%>
+  </form>
+</div>
+
+
+<div class="path-container">
+  <ul class="path">
+    <li class="home path_e">
+      <a href="#" class="redirigir">Home</a>
+      <a class="gap">></a>
+    </li>
+    <li class="productos path_e">
+      <a href="#" class="redirigir current-path"><%= t 'navbar.catalog' %></a>
+    </li>
+  </ul>
+</div>
+
+
+<div class="catalogo-container">
+    <div class="catalogo-nav">
+
+      <h2><%= t 'catalogo.categories.category' %></h2>
+      
+      <%= render :partial => "navbar" %>
+
+    </div>
+
+
+    <div class="catalogo">
+    
+        <h2><%= t 'catalogo.promocions.title' %></h2> 
+
+        <% @items.each do |i| %> 
+            <ul class="fila-prod" id="fila-prod-1">
+                <li class="product-container">
+                  <a class="product-image">
+                    
+                    <span class="product-name"><%= i.nombre %></span>
+                    <span class="product-price"><%= i.subtotal %></span>
+                    <%=image_tag(i.imagen, :class => "product-draw")%>
+                  </a>
+
+                </li>
+            </ul>
+        <% end %>   
+
+    </div>
+</div>

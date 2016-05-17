@@ -22,13 +22,13 @@
 
             <div class="nav_der"> 
              <% if @current_user && @current_user.admin %>
-              <%= link_to admin_profile_path(@user) do %>
+              <%= link_to admin_profile_path do %>
                 <li class="nav_e first <%= @tab==3 ? 'active' : '' %>" id="usuario"><%=image_tag("usuario"+ @usuario+".png", :class => "icono")%><span class="navegacion <%= @tab==3 ? 'active' : '' %>"><%=@current_user_name%></span></li>
               <% end %>
               
               <% else %>
 
-              <%= link_to session_profile_path(@user) do %>
+              <%= link_to session_profile_path do %>
                 <li class="nav_e first <%= @tab==3 ? 'active' : '' %>" id="usuario"><%=image_tag("usuario"+ @usuario+".png", :class => "icono")%><span class="navegacion <%= @tab==3 ? 'active' : '' %>"><%=@current_user_name%></span></li>
               <% end %>
 

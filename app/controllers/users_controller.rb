@@ -11,13 +11,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    puts params.inspect
-  	
-    @user = User.new(params[:user])
+    user_params 	
+    @user = User.new(params[:user].permit(:nombre, :apellido, :username, :direccion, :email, :direccion, :password, :comuna, :pais))
     if @user.save
+      redirect_to session_profile_path
     else
+      redirect_to new_user_path
     end
-    render "new"
   end
 
   def edit
