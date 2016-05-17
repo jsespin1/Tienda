@@ -20,7 +20,11 @@
 
     <li class = "contenedor_producto">
       <a class = "imagen">
+        <%if p.imagen && p.imagen != ""%>
         <%=image_tag(p.imagen, :class => "product-draw")%>
+        <%else%>
+        <%=image_tag("no_image.png", :class => "product-draw")%>
+        <%end%>
         <span class = "nombre_producto"><%=p.nombre%></span>
         <span class = "precio_producto"><%=p.precio%></span>
         <span class = "descripcion_producto"><%=p.descripcion%></span>

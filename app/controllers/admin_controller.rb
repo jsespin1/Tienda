@@ -82,6 +82,7 @@ class AdminController < ApplicationController
   def editar_catalogo
 
     @productos = Product.all
+    puts "PARAMETROS ->" + @productos.inspect
     
   end
 
@@ -126,6 +127,9 @@ class AdminController < ApplicationController
 
   def editar_promocion
     @promocion = Promocion.find(params[:prom_id])
+    @productos_promocion = @promocion.products
+    @promocion.cantidad_productos = @productos_promocion.count
+    @promocion.save
   end
 
   def actualizar_promocion
@@ -145,10 +149,31 @@ class AdminController < ApplicationController
 
   def agregar_promo
 
-    puts "PARAMETROS ->" + params.inspect
     @producto = Promocion.new(params[:promocion].permit(:nombre, :subtotal, :comentario, :descuento, :imagen))
 
     if @producto.save
+    else
+    end
+    redirect_to editar_promociones_path()
+
+    
+  end
+
+  def agregar_producto_promocion
+
+    @promo = Promocion.find(params[:prom_id])
+    @productos = Product.all
+    @productos_promocion = @promo.products
+    
+  end
+
+  def subir_producto_promocion
+
+    @producto = Product.find(params[:producto_id])
+    @promo = Promocion.find(params[:producto][:prom_id]) 
+    if @producto.save
+      puts "EL PRODUCTO ES ->" + params.inspect
+      @promo.products << @producto
     else
     end
     redirect_to editar_promociones_path()

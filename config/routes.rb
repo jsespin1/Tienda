@@ -72,6 +72,10 @@ Rails.application.routes.draw do
 
   post 'admin/agregar_promo', to: 'admin#agregar_promo'
 
+  post 'admin/agregar_producto_promocion', to: 'admin#agregar_producto_promocion'
+
+  post 'admin/subir_producto_promocion', to: 'admin#subir_producto_promocion'
+
 
 
 

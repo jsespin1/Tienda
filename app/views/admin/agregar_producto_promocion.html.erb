@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag    'sessions', media: 'all', 'data-turbolinks-track' => true %>
+
+<div class="profile-nav">
+  
+  <%= render :partial => "profilenav" %>
+
+</div>
+
+
+<div class="my-account">
+   <h2>Agregar Producto a: <%=@promo.nombre%></h2>
+
+   <%= form_for(:producto, :url => {:controller => 'admin', :action => 'subir_producto_promocion'}, :html => {:class => "form_for_sign"}) do |f| %>
+      Seleccione un producto: 
+            <select name="producto_id">
+              <%if @productos %>
+              <%@productos.each do |p| %>
+              <option value=<%=p.id%>><%=p.nombre%></option>
+              
+              <%end%>
+              <%= f.hidden_field :prom_id, :value => @promo.id %>
+              <%= f.submit :Update, :class => "submit" %>
+              <%end%> 
+            </select>
+          
+          
+          <% end %>
+
+
+</div>
