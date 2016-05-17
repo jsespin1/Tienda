@@ -124,6 +124,38 @@ class AdminController < ApplicationController
     
   end
 
+  def editar_promocion
+    @promocion = Promocion.find(params[:prom_id])
+  end
+
+  def actualizar_promocion
+    @promocion = Promocion.find(params[:promocion][:prom_id])
+    if @promocion.update_attributes(params[:promocion].permit(:nombre, :subtotal, :comentario, :descuento, :imagen))
+      redirect_to editar_promociones_path()
+    else
+    end
+  end
+
+  def eliminar_promocion
+
+    Promocion.delete(params[:prom_id])
+    redirect_to editar_promociones_path()
+    
+  end
+
+  def agregar_promo
+
+    puts "PARAMETROS ->" + params.inspect
+    @producto = Promocion.new(params[:promocion].permit(:nombre, :subtotal, :comentario, :descuento, :imagen))
+
+    if @producto.save
+    else
+    end
+    redirect_to editar_promociones_path()
+
+    
+  end
+
 
 
 end

@@ -62,6 +62,17 @@ Rails.application.routes.draw do
 
   get 'admin/editar_promociones', to: 'admin#editar_promociones', :as => :editar_promociones
 
+  delete 'admin/eliminar_promocion', to: 'admin#eliminar_promocion'
+
+  post 'admin/editar_promocion', to: 'admin#editar_promocion', :as => :editar_promocion
+
+  post 'admin/actualizar_promocion', to: 'admin#actualizar_promocion'
+
+  post 'admin/agregar_promocion', to: 'admin#agregar_promocion'
+
+  post 'admin/agregar_promo', to: 'admin#agregar_promo'
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

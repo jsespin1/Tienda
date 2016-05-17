@@ -9,7 +9,7 @@
 <div class="my-account">
   <div class ="contenedor_titulo">
     <h2>Editar Catalogo</h2>
-    <%= button_to 'Agregar productos', {:controller => "admin", :action => "agregar_producto"} , :method=>:post  %>
+    <%= button_to 'Agregar promociones', {:controller => "admin", :action => "agregar_promocion"} , :method=>:post  %>
 
   </div>
   
@@ -20,7 +20,7 @@
   <p>
     <li class = "contenedor_producto">
       <a class = "imagen">
-      	<%if !p.imagen%>
+      	<%if !p.imagen || p.imagen =""%>
         <%=image_tag("no_image.png", :class => "product-draw")%>
         <%else%>
         <%=image_tag(p.imagen, :class => "product-draw")%>
@@ -41,8 +41,8 @@
 
   <div class ="contenedor_botones">
     
-   <%= button_to 'Editar', {:controller => "admin", :action => "editar_producto", :prod_id => p.id} , :method=>:post  %>
-   <%= button_to "Eliminar", {:controller => "admin", :action => "eliminar_producto", :prod_id => p.id }, :method => :delete %>
+   <%= button_to 'Editar', {:controller => "admin", :action => "editar_promocion", :prom_id => p.id} , :method=>:post  %>
+   <%= button_to "Eliminar", {:controller => "admin", :action => "eliminar_promocion", :prom_id => p.id }, :method => :delete, data: { confirm: '¿Estas seguro que quieres eliminar la promocion?'} %>
     
   </div>
   
