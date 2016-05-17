@@ -13,7 +13,7 @@ class Catalogo < ActiveRecord::Base
 	end
 
 	def self.getPromociones
-		items = Promocion.where(:cantidad > 0, :active => true)
+		items = Promocion.where(:cantidad_productos > 0, :active => true)
 	end
 
 end
