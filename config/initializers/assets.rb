@@ -7,6 +7,7 @@ Rails.application.config.assets.precompile += %w( navbar.css )
 Rails.application.config.assets.precompile += %w( users.css )
 Rails.application.config.assets.precompile += %w( sessions.css )
 Rails.application.config.assets.precompile += %w( autos.css )
+Rails.application.config.assets.precompile += %w( editar_catalogo.css )
 
 Rails.application.config.assets.precompile += %w( catalogo.css )
 

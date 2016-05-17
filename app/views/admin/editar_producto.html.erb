@@ -1,0 +1,26 @@
+<%= stylesheet_link_tag    'sessions', media: 'all', 'data-turbolinks-track' => true %>
+
+<div class="profile-nav">
+  
+  <%= render :partial => "profilenav" %>
+
+</div>
+
+
+<div class="my-account">
+
+    <h2>Editar Producto</h2>
+
+
+          <%= form_for(:producto, :url => {:controller => 'admin', :action => 'actualizar_producto'}, :html => {:class => "form_for_sign"}) do |f| %>
+            <p class="info-container"> Nombre <%= f.text_field :nombre, :class => "text-field"%> </p>
+            <p class="info-container"> Precio <%= f.text_field :precio, :class => "text-field"%> </p>
+            <p class="info-container"> Descripcion <%= f.text_field :descripcion, :class => "text-field"%> </p>
+            <p class="info-container"> Imagen <%= f.text_field :imagen, :class => "text-field"%> </p>
+            <%= f.hidden_field :prod_id, :value => @producto.id %>
+            <%= f.submit :Update, :class => "submit" %>
+          <% end %>
+
+
+
+  </div>

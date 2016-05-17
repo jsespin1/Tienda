@@ -83,4 +83,108 @@ class AdminController < ApplicationController
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :encrypted_password, :salt, :admin)
   end
 
+  def editar_catalogo
+
+    @productos = Product.all
+    puts "PARAMETROS ->" + @productos.inspect
+    
+  end
+
+  def editar_producto
+
+    @producto = Product.find(params[:prod_id])
+  end
+
+  def actualizar_producto
+    @producto = Product.find(params[:producto][:prod_id])
+    if @producto.update_attributes(params[:producto].permit(:nombre, :precio, :descripcion, :tipo, :imagen))
+      redirect_to editar_catalogo_path(@current_user)
+    else
+    end
+  end
+
+  def eliminar_producto
+
+    Product.delete(params[:prod_id])
+    redirect_to editar_catalogo_path(@current_user)
+    
+  end
+
+  def agregar
+
+    puts "PARAMETROS ->" + params.inspect
+    @producto = Product.new(params[:producto].permit(:nombre, :precio, :descripcion, :tipo, :imagen))
+
+    if @producto.save
+    else
+    end
+    redirect_to editar_catalogo_path()
+
+    
+  end
+
+  def editar_promociones
+
+    @promociones = Promocion.all
+    
+  end
+
+  def editar_promocion
+    @promocion = Promocion.find(params[:prom_id])
+    @productos_promocion = @promocion.products
+    @promocion.cantidad_productos = @productos_promocion.count
+    @promocion.save
+  end
+
+  def actualizar_promocion
+    @promocion = Promocion.find(params[:promocion][:prom_id])
+    if @promocion.update_attributes(params[:promocion].permit(:nombre, :subtotal, :comentario, :descuento, :imagen))
+      redirect_to editar_promociones_path()
+    else
+    end
+  end
+
+  def eliminar_promocion
+
+    Promocion.delete(params[:prom_id])
+    redirect_to editar_promociones_path()
+    
+  end
+
+  def agregar_promo
+
+    @producto = Promocion.new(params[:promocion].permit(:nombre, :subtotal, :comentario, :descuento, :imagen))
+
+    if @producto.save
+    else
+    end
+    redirect_to editar_promociones_path()
+
+    
+  end
+
+  def agregar_producto_promocion
+
+    @promo = Promocion.find(params[:prom_id])
+    @productos = Product.all
+    @productos_promocion = @promo.products
+    
+  end
+
+  def subir_producto_promocion
+
+    @producto = Product.find(params[:producto_id])
+    @promo = Promocion.find(params[:producto][:prom_id]) 
+    if @producto.save
+      puts "EL PRODUCTO ES ->" + params.inspect
+      @promo.products << @producto
+    else
+    end
+    redirect_to editar_promociones_path()
+
+    
+  end
+
+
+
 end

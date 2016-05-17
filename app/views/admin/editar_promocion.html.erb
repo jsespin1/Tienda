@@ -1,0 +1,40 @@
+<%= stylesheet_link_tag    'sessions', media: 'all', 'data-turbolinks-track' => true %>
+
+<div class="profile-nav">
+  
+  <%= render :partial => "profilenav" %>
+
+</div>
+
+
+<div class="my-account">
+
+    <h2>Editar Promocion</h2>
+
+
+          <%= form_for(:promocion, :url => {:controller => 'admin', :action => 'actualizar_promocion'}, :html => {:class => "form_for_sign"}) do |f| %>
+            <p class="info-container"> Nombre <%= f.text_field :nombre, :class => "text-field"%> </p>
+            <p class="info-container"> Subtotal <%= f.text_field :subtotal, :class => "text-field"%> </p>
+            <p class="info-container"> Descuento <%= f.text_field :descuento, :class => "text-field"%> </p>
+            <%if @productos_promocion %>
+            <p class="info-container"> Cantidad de Productos: <%=@productos_promocion.count%> </p>
+            
+            <p class="info-container"> Comentario <%= f.text_field :comentario, :class => "text-field"%> </p>
+            <p class="info-container"> Imagen <%= f.text_field :imagen, :class => "text-field"%> </p>
+            <%= f.hidden_field :prom_id, :value => @promocion.id %>
+            <%end%>
+            <%= f.submit :Update, :class => "submit" %>
+          <% end %>
+          <p></p>
+          <% if @productos_promocion.count < 2 %>
+            <p class="info-container"> Esta Promocion  tiene <%= @productos_promocion.count %> productos. ¿Desea agregar otro? </p>
+            <%= button_to "Agregar Producto", {:controller => 'admin', :action => "agregar_producto_promocion", :prom_id => @promocion.id}, {:class => "buttonTo" } %>
+          <%end%>
+          <% if @productos_promocion.count > 0 %>
+            <p class="info-container"> Esta Promocion  tiene <%= @productos_promocion.count %> productos. ¿Desea agregar otro? </p>
+            <%= button_to "Agregar Producto", {:controller => 'admin', :action => "agregar_producto_promocion", :prom_id => @promocion.id}, {:class => "buttonTo" } %>
+          <%end%>
+
+           
+
+  </div>

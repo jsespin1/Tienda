@@ -44,11 +44,43 @@ Rails.application.routes.draw do
 
       get 'admin/edit'
 
+      post 'admin/update', to:'admin#update'
+
       get 'admin/cambiar_contrasena', to: 'admin#cambiar_contrasena', :as => :cambiarcontrasena_admin
 
       post 'admin/update_contrasena', to: 'admin#update_contrasena'
 
-      #--------------------------------Catalogo---------------------------------#
+      #--------------------------------Catalogo-Admin---------------------------------#
+
+      get 'admin/editar_catalogo', to: 'admin#editar_catalogo', :as => :editar_catalogo
+
+      post 'admin/editar_producto', to: 'admin#editar_producto', :as => :editar_producto
+
+      post 'admin/actualizar_producto', to: 'admin#actualizar_producto'
+
+      delete 'admin/eliminar_producto', to: 'admin#eliminar_producto'
+
+      post 'admin/agregar_producto', to: 'admin#agregar_producto'
+
+      post 'admin/agregar', to: 'admin#agregar'
+
+      get 'admin/editar_promociones', to: 'admin#editar_promociones', :as => :editar_promociones
+
+      delete 'admin/eliminar_promocion', to: 'admin#eliminar_promocion'
+
+      post 'admin/editar_promocion', to: 'admin#editar_promocion', :as => :editar_promocion
+
+      post 'admin/actualizar_promocion', to: 'admin#actualizar_promocion'
+
+      post 'admin/agregar_promocion', to: 'admin#agregar_promocion'
+
+      post 'admin/agregar_promo', to: 'admin#agregar_promo'
+
+      post 'admin/agregar_producto_promocion', to: 'admin#agregar_producto_promocion'
+
+      post 'admin/subir_producto_promocion', to: 'admin#subir_producto_promocion'
+
+      #----------------------------------Catalogo-------------------------------------#
 
       get 'catalogo/index', :as => :catalogo_index
       get 'catalogo/autos', :as => :catalogo_autos
@@ -57,7 +89,6 @@ Rails.application.routes.draw do
       
   end
 
-   post 'admin/update', to:'admin#update'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

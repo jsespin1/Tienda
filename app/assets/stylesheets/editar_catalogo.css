@@ -1,0 +1,64 @@
+/*Despues de aplicar márgenes, la página tiene un ancho de 720px*/
+
+html {
+  margin: 0 auto;
+}
+body {
+  /* de altura 100% */
+  margin: 0 auto;
+  background: #FFFEF9;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+main {
+	background: #FFFEF9;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+div.contenedor_catalogo{
+	display:block;
+	min-height:100%;
+}
+
+li.contenedor_container{
+	width:999px;
+	height:180px;
+	margin-top:30px;
+	background-color:#2E2E2E;
+}
+
+li > a > span.product-name{
+	float:left;
+	height:5px;
+	padding-left:15px;
+	padding-top:10px;
+	font-size:15px;
+	color:white;
+}
+
+li.contenedor_producto{
+	list-style-type: none;
+}
+
+li > a > span.product-price{
+	clear:both;
+	float:left;
+	padding-left:15px;
+	font-size:15px;
+	color:white;
+}
+
+a.magen{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img.product-draw{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:33%;
+    padding-top:25px;
+}
