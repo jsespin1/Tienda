@@ -10,7 +10,6 @@ class Promocion < ActiveRecord::Base
 	has_many :order_items 
 
 	validates :nombre, :presence => true, :length => { :in => 2..20 }
-  	validates :subtotal, :presence => true
   	validates :descuento, :presence => true
 
 
