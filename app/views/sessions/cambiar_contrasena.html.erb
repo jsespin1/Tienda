@@ -16,13 +16,13 @@
 
   <div class="my-account">
 
-  	<h2>Editar Cuenta</h2>
+  	<h2><%= t 'admin.account.edit' %></h2>
 
   	<div class="overview">
   		<div class="user-info">
           <%= form_for(:user, :url => {:controller => 'users', :action => 'update_contrasena'}, :html => {:class => "form_for_sign"}) do |f| %>
-            <p class="info-container"> Nueva Contraseña <%= f.password_field :password, :class => "text-field"%> </p>
-            <p class="info-container"> Confirmar Contraseña <%= f.password_field :password_confirmation, :class => "text-field"%> </p>
+            <p class="info-container"> <%= t 'admin.security.new' %> <%= f.password_field :password, :class => "text-field"%> </p>
+            <p class="info-container"> <%= t 'admin.security.confirm' %> <%= f.password_field :password_confirmation, :class => "text-field"%> </p>
             <%= f.submit :Update, :class => "submit" %>
           <% end %>
 

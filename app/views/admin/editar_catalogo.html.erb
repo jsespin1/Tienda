@@ -8,7 +8,7 @@
 
 <div class="my-account">
   <div class ="contenedor_titulo">
-    <h2>Editar Catalogo</h2>
+    <h2><%= t 'admin.catalog.edit' %></h2>
     <%= button_to 'Agregar productos', {:controller => "admin", :action => "agregar_producto"} , :method=>:post  %>
 
   </div>
@@ -25,9 +25,9 @@
         <%else%>
         <%=image_tag("no_image.png", :class => "product-draw")%>
         <%end%>
-        <span class = "nombre_producto">Nombre Producto: <%=p.nombre%></span>
-        <span class = "precio_producto">Precio Producto: <%=p.precio%></span>
-        <span class = "descripcion_producto">Descripción: <%=p.descripcion%></span>
+        <span class = "nombre_producto"><%= t 'admin.catalog.name' %> <%=p.nombre%></span>
+        <span class = "precio_producto"><%= t 'admin.catalog.price' %> <%=p.precio%></span>
+        <span class = "descripcion_producto"><%= t 'admin.catalog.description' %> <%=p.descripcion%></span>
         
 
       </a>

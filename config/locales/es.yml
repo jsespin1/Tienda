@@ -20,6 +20,57 @@ es:
     login: "Ingresar"
     us: "Nosotros"
     product: "Producto"
+  admin:
+    navbar:
+        information: "Información"
+        account: "Cuenta/Dirección"
+        security: "Seguridad"
+        users_list: "Lista de Usuarios"
+        users_create: "Crear Usuario"
+        catalog_edit: "Editar Catalogo"
+        deals_edit: "Editar Promociones"
+        logout: "Salir"
+    information:
+      general: "Información General"
+      information: "Información de Cuenta"
+      personal: "Información de Usuario"
+      adress: "Dirección"
+      name: "Nombre:  "
+      lastname: "Apellido:  "
+      mail: "Correo:  "
+      user: "Usuario:  "
+      users: "Usuarios"
+      area: "Comuna:  "
+      city: "Ciudad:  "
+      block: "Bloqueado:  "
+    security:
+      new: "Contraseña Nueva"
+      confirm: "Confirmar Contraseña"
+      password: "Contraseña"
+    account: 
+      edit: "Editar Cuenta"
+      administrator: "Aministrador  "
+      block: "Bloqueado  "
+    catalog:
+      edit: "Editar Catalogo"
+      name: "Nombre Producto:  "
+      price: "Precio Producto: "
+      description: "Descripción: "
+      delete: "Eliminar "
+    deals:
+      edit: "Editar Promoción"
+      name: "Nombre Promoción:  "
+      price: "Precio Promoción: "
+      discount: "Descuento:  "
+      description: "Descripción: "
+      delete: "Eliminar "
+      quantity: "Número de Productos:  "
+    product:
+      edit: "Editar Producto"
+      price: "Precio"
+      image: "Imagen"
+
+
 
 
   errors:

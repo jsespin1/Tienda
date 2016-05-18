@@ -1,7 +1,7 @@
 class Catalogo < ActiveRecord::Base
 	#Simplemente se encarga de retornar los productos que el catalogo requiere
 	def self.getRandom
-		items = Product.all
+		items = Product.all.shuffle
 	end
 
 	def self.getAutos

@@ -19,20 +19,20 @@
   <h2 class="crear_cuenta">Crear Nueva Cuenta</h2>
   
   <%= form_for(:user, :url => {:controller => 'admin', :action => 'create'}, :html => {:class => "form_for_sign"}) do |f| %>
-    <h2 class="crear_cuenta">Información Personal</h1>
-    <p class="info-container"> Nombre <%= f.text_field :nombre, :class => "text-field"%> </p>
-    <p class="info-container"> Apellido <%= f.text_field :apellido, :class => "text-field"%> </p>
-    <h2 class="crear_cuenta">Información Cuenta</h1>
-    <p class="info-container"> Usuario <%= f.text_field :username, :class => "text-field"%> </p>
-    <p class="info-container"> Correo <%= f.text_field :email, :class => "text-field"%> </p>
-    <p class="info-container"> Contraseña <%= f.password_field :password, :class => "text-field"%></p>
-    <p class="info-container"> Confirmación Contraseña <%= f.password_field :password_confirmation, :class => "text-field"%> </p>
-    <h2 class="crear_cuenta">Direccion</h1>
-    <p class="info-container"> Direccion <%= f.text_field :direccion, :class => "text-field"%> </p>
-    <p class="info-container"> Comuna <%= f.text_field :comuna, :class => "text-field"%> </p>
-    <p class="info-container"> Pais <%= f.text_field :pais, :class => "text-field"%> </p>
-    <p class="info-container"> Administrador<%= f.check_box :admin%> </p>
-    <%= f.submit :Register, :class => "submit" %>
+    <h2 class="crear_cuenta"><%= t 'admin.information.name' %></h1>
+    <p class="info-container"> <%= t 'admin.information.name' %> <%= f.text_field :nombre, :class => "text-field"%> </p>
+    <p class="info-container"> <%= t 'admin.information.lastname' %> <%= f.text_field :apellido, :class => "text-field"%> </p>
+    <h2 class="crear_cuenta"><%= t 'admin.information.information' %></h1>
+    <p class="info-container"> <%= t 'admin.information.user' %> <%= f.text_field :username, :class => "text-field"%> </p>
+    <p class="info-container"> <%= t 'admin.information.mail' %> <%= f.text_field :email, :class => "text-field"%> </p>
+    <p class="info-container"> <%= t 'admin.security.password' %> <%= f.password_field :password, :class => "text-field"%></p>
+    <p class="info-container"> <%= t 'admin.security.confirm' %> <%= f.password_field :password_confirmation, :class => "text-field"%> </p>
+    <h2 class="crear_cuenta"><%= t 'admin.information.adress' %></h1>
+    <p class="info-container"> <%= t 'admin.information.adress' %><%= f.text_field :direccion, :class => "text-field"%> </p>
+    <p class="info-container"> <%= t 'admin.information.area' %> <%= f.text_field :comuna, :class => "text-field"%> </p>
+    <p class="info-container"> <%= t 'admin.information.city' %> <%= f.text_field :pais, :class => "text-field"%> </p>
+    <p class="info-container"> <%= t 'admin.account.administrator' %><%= f.check_box :admin%> </p>
+    <%= f.submit "Registrar", :class => "submit" %>
   <% end %>
 
 

@@ -40,6 +40,59 @@ en:
     login: "Login"
     us: "About Us"
     product: "Product"
+  admin:
+    navbar:
+        information: "Information"
+        account: "Account/Adress"
+        security: "Security"
+        users_list: "Users List"
+        users_create: "Create User"
+        catalog_edit: "Edit Catalog"
+        deals_edit: "Edit Deals"
+        logout: "Logout"
+    information:
+      general: "Overview"
+      information: "Account Information"
+      personal: "User´s Information"
+      adress: "Adress"
+      name: "Name:  "
+      lastname: "Last Name:  "
+      mail: "Mail:  "
+      user: "User:  "
+      users: "Users"
+      area: "Area:  "
+      city: "City:  "
+      block: "Blocked:  "
+    security:
+      new: "New Password"
+      confirm: "Confirm Password"
+      password: "Password"
+    account: 
+      edit: "Edit Account"
+      administrator: "Manager  "
+      block: "Blocked  "
+    catalog:
+      edit: "Edit Catalog"
+      name: "Product Name:  "
+      price: "Product Price: "
+      description: "Description: "
+      delete: "Delete "
+    deals:
+      edit: "Edit Deal"
+      name: "Deal Name:  "
+      price: "Deal Price: "
+      discount: "Discount:  "
+      description: "Description: "
+      delete: "Delete "
+      quantity: "Number of Products:  "
+    product:
+      edit: "Edit Product"
+      price: "Price"
+      image: "Image"
+
+
+
+
 
 
   errors:

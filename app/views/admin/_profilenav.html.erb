@@ -6,39 +6,39 @@
     <ul class="profile_nav"> 
 
         <%= link_to admin_profile_path do %>
-                <li class="lateral">Información</li>
+                <li class="lateral"><%= t 'admin.navbar.information' %></li>
         <% end %>
 
 
         <%= link_to admin_edit_path do %>
-                <li class= "lateral">Cuenta/Dirección</li>
+                <li class= "lateral"><%= t 'admin.navbar.account' %></li>
         <% end %>
 
         <%= link_to cambiarcontrasena_admin_path do %>
-                <li class= "lateral">Seguridad</li>
+                <li class= "lateral"><%= t 'admin.navbar.security' %></li>
         <% end %>
 
 
         <%= link_to admin_listar_usuarios_path do %>
-                <li class= "lateral">Listar Usuarios</li>
+                <li class= "lateral"><%= t 'admin.navbar.users_list' %></li>
         <% end %>
 
 
         <%= link_to new_user_admin_path do %>
-                <li class= "lateral">Crear Usuarios</li>
+                <li class= "lateral"><%= t 'admin.navbar.users_create' %></li>
         <% end %>
 
 
         <%= link_to editar_catalogo_path do %>
-                <li class= "lateral">Editar Catalogo</li>
+                <li class= "lateral"><%= t 'admin.navbar.catalog_edit' %></li>
         <% end %>
 
         <%= link_to editar_promociones_path do %>
-                <li class= "lateral">Editar Promociones</li>
+                <li class= "lateral"><%= t 'admin.navbar.deals_edit' %></li>
         <% end %>
 
         <%= link_to session_logout_path do %>
-                <li class= "lateral">Logout</li>
+                <li class= "lateral"><%= t 'admin.navbar.logout' %></li>
         <% end %>
 
 

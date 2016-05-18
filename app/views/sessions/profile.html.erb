@@ -17,20 +17,20 @@
 
   <div class="my-account">
 
-  	<h2>Información General</h2>
+  	<h2><%= t 'admin.information.general' %></h2>
 
   	<div class="overview">
   		<div class="user-info">
   			<div class="info-izquierda">
-  			<h3>Información De Cuenta</h3>
+  			<h3><%= t 'admin.information.information' %></h3>
 
   			</div>
 
   			<div class="info-derecha">
   				<ul class="lista-derecha"> 
-  					<li class="lateral">Nombre:  <%=@current_user.nombre+" "+@current_user.apellido%></li>
-  					<li class="lateral">Correo:  <%=@current_user.email%></li>
-  					<li class="lateral">Usuario:  <%=@current_user.username%></li>
+  					<li class="lateral"><%= t 'admin.information.name' %>  <%=@current_user.nombre+" "+@current_user.apellido%></li>
+  					<li class="lateral"><%= t 'admin.information.mail' %>  <%=@current_user.email%></li>
+  					<li class="lateral"><%= t 'admin.information.user' %>  <%=@current_user.username%></li>
   				</ul>
   			</div>
 
@@ -38,15 +38,15 @@
 
   		<div class="user-adress">
   			<div class="info-izquierda">
-  			<h3>Dirección</h3>
+  			<h3><%= t 'admin.information.adress' %></h3>
 
   			</div>
 
   			<div class="info-derecha">
   				<ul class="lista-derecha"> 
-  					<li class="lateral">Dirección:  <%=@current_user.direccion%></li>
-  					<li class="lateral">Comuna:  <%=@current_user.comuna%></li>
-  					<li class="lateral">Ciudad:  <%=@current_user.pais%></li>
+  					<li class="lateral"><%= t 'admin.information.adress' %>  <%=@current_user.direccion%></li>
+  					<li class="lateral"><%= t 'admin.information.area' %>  <%=@current_user.comuna%></li>
+  					<li class="lateral"><%= t 'admin.information.city' %>  <%=@current_user.pais%></li>
   				</ul>
   			</div>
 

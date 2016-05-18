@@ -8,7 +8,7 @@
 
 <div class="my-account">
   <div class ="contenedor_titulo">
-    <h2>Editar Promociones</h2>
+    <h2><%= t 'admin.deals.edit' %></h2>
     <%= button_to 'Agregar promociones', {:controller => "admin", :action => "agregar_promocion"} , :method=>:post  %>
 
   </div>
@@ -25,13 +25,13 @@
         <%else%>
         <%=image_tag(p.imagen, :class => "product-draw")%>
         <%end%>
-        <span class = "nombre_producto">Nombre Promocion: <%=p.nombre%></span>
-        <span class = "precio_producto">Precio Promocion: <%=p.subtotal%></span>
-        <span class = "descuento_producto">Descuento: <%=p.descuento%></span>
+        <span class = "nombre_producto"><%= t 'admin.deals.name' %> <%=p.nombre%></span>
+        <span class = "precio_producto"><%= t 'admin.deals.price' %> <%=p.subtotal%></span>
+        <span class = "descuento_producto"><%= t 'admin.deals.discount' %> <%=p.descuento%></span>
         <%if p.comentario && p.comentario != ""%>
-        <span class = "descripcion_producto">Descripcion: <%=p.comentario%></span>
+        <span class = "descripcion_producto"><%= t 'admin.deals.description' %> <%=p.comentario%></span>
         <%end%>
-        <span class = "cantidad_producto">Productos en Promocion: <%=p.products.count%></span>
+        <span class = "cantidad_producto"><%= t 'admin.deals.quantity' %> <%=p.products.count%></span>
        
         
 

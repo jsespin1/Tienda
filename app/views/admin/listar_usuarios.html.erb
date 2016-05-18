@@ -15,15 +15,15 @@
 	<div class="lista_usuarios">
 		<table border="1">
 			<tr>
-				<th>Nombre</th>
-				<th>Apellido</th>
-				<th>Mail</th>
+				<th><%= t 'admin.information.name' %></th>
+				<th><%= t 'admin.information.lastname' %></th>
+				<th><%= t 'admin.information.mail' %></th>
 				<th>ID</th>
 				<th>Admin</th>
-				<th>Direccion</th>
-				<th>Comuna</th>
-				<th>Pais</th>
-				<th>Bloqueado</th>
+				<th><%= t 'admin.information.adress' %></th>
+				<th><%= t 'admin.information.area' %></th>
+				<th><%= t 'admin.information.city' %></th>
+				<th><%= t 'admin.information.block' %></th>
 			</tr>
 			
 			<% @all_users.each do |user| %>
