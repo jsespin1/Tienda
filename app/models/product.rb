@@ -8,6 +8,6 @@ class Product < ActiveRecord::Base
 	has_many :order_items 
 
 	validates :nombre, :presence => true, :length => { :in => 2..20 }
-  	validates :precio, :presence => true
-  	validates :tipo, :presence => true
+  validates :precio, :presence => true
+  validates :tipo, :presence => true
 end

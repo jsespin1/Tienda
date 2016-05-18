@@ -31,8 +31,8 @@
             <%= button_to "Agregar Producto", {:controller => 'admin', :action => "agregar_producto_promocion", :prom_id => @promocion.id}, {:class => "buttonTo" } %>
           <%end%>
           <% if @productos_promocion.count > 0 %>
-            <p class="info-container"> Esta Promocion  tiene <%= @productos_promocion.count %> productos. ¿Desea agregar otro? </p>
-            <%= button_to "Agregar Producto", {:controller => 'admin', :action => "agregar_producto_promocion", :prom_id => @promocion.id}, {:class => "buttonTo" } %>
+            <p class="info-container"> Esta Promocion  tiene <%= @productos_promocion.count %> productos. ¿Desea eliminar alguno? </p>
+            <%= button_to "Eliminar Producto", {:controller => 'admin', :action => "eliminar_producto_promocion", :prom_id => @promocion.id}, {:class => "buttonTo" } %>
           <%end%>
 
            

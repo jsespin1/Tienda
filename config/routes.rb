@@ -80,6 +80,10 @@ Rails.application.routes.draw do
 
       post 'admin/subir_producto_promocion', to: 'admin#subir_producto_promocion'
 
+      post 'admin/eliminar_producto_promocion', to: 'admin#eliminar_producto_promocion'
+
+      post 'admin/quitar_producto_promocion', to: 'admin#quitar_producto_promocion'
+
       #----------------------------------Catalogo-------------------------------------#
 
       get 'catalogo/index', :as => :catalogo_index
