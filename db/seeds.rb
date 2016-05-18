@@ -39,3 +39,4 @@ promocion1 = Promocion.create! id: 1, nombre: "Maserati+Boxer", cantidad_product
 promocion1.products << maserati
 promocion1.products << boxer
 promocion1.save
+Promocion.set_subtotal(promocion1)

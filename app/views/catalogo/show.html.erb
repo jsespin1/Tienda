@@ -1,0 +1,65 @@
+<%= stylesheet_link_tag  'catalogo', media: 'all', 'data-turbolinks-track' => true %>
+
+<div class="search-container">
+  <form id="search">
+    <%=image_tag("search-icon.png", :class => "search-icon")%>
+  </form>
+</div>
+
+
+<div class="path-container">
+  <ul class="path">
+    <li class="home path_e">
+      <a href="#" class="redirigir">Home</a>
+      <a class="gap">></a>
+    </li>
+    <li class="productos path_e">
+      <a href="#" class="redirigir current-path"><%= t 'navbar.catalog' %></a>
+      <a class="gap">></a>
+    </li>
+    <li class="productos path_e">
+      <a href="#" class="redirigir current-path"><%= t 'navbar.product' %></a>
+    </li>
+  </ul>
+</div>
+
+
+<div class="product-container">
+          <div class="product-media">
+            <%=image_tag(@item.imagen, :class => "product-show")%>
+          </div>
+          <div class="product-info">
+            <h1><%= @item.nombre%></h1>
+            <div class="decision">
+              <div class="price-box">
+                <p class="price">
+                  <% if @tipo=="producto"%>
+                      <span class="price" id="old-price-775"><%= "$ "+@item.precio.to_s%></span>
+                  <% else%>
+                      <span class="old-price" id="old-price-775"><%= "$ "+(@item.subtotal + @item.descuento).to_s%></span>
+                      <span class="price" id="old-price-775"><%= "$ "+@item.subtotal.to_s%></span>
+
+                  <% end%>
+                </p>
+              </div>
+            </div>
+            <p class="short-description">
+                <% if @tipo=="producto"%>
+                  <%= @item.descripcion%>
+                <% else%>
+                  <%= @item.comentario%>
+                 <%end%>
+
+
+            </p>
+            <p class="sizing">
+            
+            </p>
+            <div class="decision-button">
+              <div class="button"></div>
+                <button type="button">Add To Cart</button>
+            </div>
+          </div>
+</div>
+
+

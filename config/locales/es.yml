@@ -19,6 +19,7 @@ es:
     catalog: "Catálogo"
     login: "Ingresar"
     us: "Nosotros"
+    product: "Producto"
 
 
   errors:

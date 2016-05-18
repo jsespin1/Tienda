@@ -37,9 +37,12 @@
                 <li class="product-container">
                   <a class="product-image">
                     
-                    <span class="product-name"><%= i.nombre %></span>
-                    <span class="product-price"><%= i.subtotal %></span>
-                    <%=image_tag(i.imagen, :class => "product-draw")%>
+                    <span class="product-name"><%=  i.nombre %></span>
+                    <span class="normal-price">Antes<%= "  $" + (i.subtotal + i.descuento).to_s %></span>
+                    <span class="product-price">Ahora!<%= "  $" + i.subtotal.to_s %></span>
+                    <%= link_to catalogo_show_item_path(:id => i.id.to_i, :tipo => "proomocion") do %>
+                        <%=image_tag(i.imagen, :class => "product-draw")%>
+                    <%end %>
                   </a>
 
                 </li>

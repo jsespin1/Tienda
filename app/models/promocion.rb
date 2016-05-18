@@ -9,4 +9,18 @@ class Promocion < ActiveRecord::Base
 	has_and_belongs_to_many :products  
 	has_many :order_items 
 
+
+
+	def self.set_subtotal(promocion)
+		productos = promocion.products
+		subtotal = 0
+		productos.each do |p|
+			#puts "Producto: "+p.precio.to_s
+			subtotal = subtotal + p.precio
+		end
+		#puts "Descuento: " + promocion.descuento.to_s
+		subtotal = subtotal - promocion.descuento
+		promocion.update_attributes(:subtotal => subtotal)
+	end
+
 end

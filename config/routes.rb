@@ -86,6 +86,7 @@ Rails.application.routes.draw do
       get 'catalogo/autos', :as => :catalogo_autos
       get 'catalogo/perros', :as => :catalogo_perros
       get 'catalogo/promociones', :as => :catalogo_promociones
+      get 'catalogo/show', :as => :catalogo_show_item
       
   end
 

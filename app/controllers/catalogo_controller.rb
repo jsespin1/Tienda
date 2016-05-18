@@ -23,6 +23,16 @@ class CatalogoController < ApplicationController
 		@vista = "promociones"
 	end
 
+	def show
+		puts "HOLAAAA" + params.inspect
+		@tipo = params[:tipo]
+		if @tipo=="producto"
+			@item = Product.find(params[:id])
+		else
+			@item = Promocion.find(params[:id])
+		end
+	end
+
 
 
 end

@@ -39,6 +39,7 @@ en:
     catalog: "Catalog"
     login: "Login"
     us: "About Us"
+    product: "Product"
 
 
   errors:

@@ -138,6 +138,14 @@ li > a > span.product-price{
 	font-size:15px;
 	color:white;
 }
+li > a > span.normal-price{
+	clear:both;
+	float:left;
+	padding-left:15px;
+	font-size:15px;
+	text-decoration: line-through;
+	color:white;
+}
 
 span.product-price:hover, span.product-name:hover{
 	color:#fc3;
@@ -155,6 +163,51 @@ img.product-draw{
     margin-right: auto;
     width:33%;
     padding-top:25px;
+}
+
+/*-------- Pasamos a la parte donde se muestra el producto --------*/
+
+div.product-container{
+  display:inline-block;
+  width:100%;
+  min-height:100%;
+  margin-top: 150px;
+
+}
+div.product-media{
+  float:left;
+  width:60%;
+  margin-top: 50px;
+}
+div.product-info{
+  float:right;
+  width: 30%;
+  margin-right: 40px;
+}
+img.product-show{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:60%;
+}
+
+.old-price{
+	text-decoration: line-through;
+}
+
+p{
+
+  font-size: 13px;
+  font-family: "Franklin Gothic Book","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #403C3D;
+  text-align: justify;
+}
+.sizing{
+  font-style: italic;
+  font-size: 13px;
+}
+.decision-button{
+  margin-top: 50px;
 }
 
 /*GENERAL*/

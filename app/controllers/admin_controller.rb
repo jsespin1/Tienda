@@ -178,6 +178,8 @@ class AdminController < ApplicationController
     if @producto.save
       puts "EL PRODUCTO ES ->" + params.inspect
       @promo.products << @producto
+      #Se llama, asi se actualiza subtotal de la promocion
+      @promo.save
     else
     end
     redirect_to editar_promociones_path()
