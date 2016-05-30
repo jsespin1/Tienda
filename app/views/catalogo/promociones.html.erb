@@ -29,6 +29,9 @@
 
 
     <div class="catalogo">
+
+        <input type="hidden" class="pagina_actual" value="">
+        <input type="hidden" class="por_pagina" value="">
     
         <h2><%= t 'catalogo.promocions.title' %></h2> 
 
@@ -49,5 +52,20 @@
             </ul>
         <% end %>   
 
+        <div class="link-paginas">
+          <a href="#" class="anterior" onclick="anterior()">Anterior</a>
+          <div class='paginas'></div>
+          <a href="#" class="siguiente" onclick="siguiente()">Siguiente</a>
+        </div>   
+
     </div>
+
 </div>
+
+
+
+
+<%= javascript_include_tag   'catalogo', media: 'all', 'data-turbolinks-track' => true %>
+
+
+

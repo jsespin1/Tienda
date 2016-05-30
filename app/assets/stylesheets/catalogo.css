@@ -21,6 +21,44 @@ div.catalogo{
 }
 
 
+
+/*PAGINACION*/
+
+ul.mostrar{
+ 	display: inline-block;
+}
+
+ul.ocultar{
+ 	display: none;
+}
+
+.desactivado {
+	opacity: 0.6;
+    pointer-events: none;
+    cursor: default;
+}
+
+.actual{
+    color: #fc3;
+}
+
+div.link-paginas{
+	clear:both;
+	display:block;
+	margin-top:50px;
+	margin-left:190px;
+}
+
+.link-paginas > a, .link-paginas > div {
+	display:inline-block;
+	float:left;
+	padding-right:10px;
+}
+
+div.paginas > a{
+	padding-right:6px;
+}
+
 /*SEARCH*/
 
 div.search-container{
