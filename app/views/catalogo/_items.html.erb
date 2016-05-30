@@ -4,7 +4,7 @@
 
       <ul class="fila-prod" id="fila-prod-1">
 
-          <li class="product-container">            
+          <li class="product-container" data-product-source-url="<%=product_getInfo_path(:id => i.id.to_i, :tipo => "producto", format: 'json')%>">            
             <a class="product-image">             
               <span class="product-name"><%= i.nombre %></span>
               <span class="product-price"><%= " $"+i.precio.to_s %></span>

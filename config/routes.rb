@@ -91,7 +91,7 @@ Rails.application.routes.draw do
       get 'catalogo/perros', :as => :catalogo_perros
       get 'catalogo/promociones', :as => :catalogo_promociones
       get 'catalogo/show', :as => :catalogo_show_item
-      
+      get 'catalogo/getInfo', to: 'catalogo#getInfo', :as => :product_getInfo
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
