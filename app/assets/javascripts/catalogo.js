@@ -9,7 +9,7 @@ $(document).ready(function(){
 
   var links = ""
   for(var i = 1; i<=paginas; i++){
-    links += "<a href='#' class="+i+" class='num_pagina' onclick=goto("+i+") >"+i+"</div>"
+    links += "<a href='#' data-page-number="+i+"  id="+i+" class='num_pagina'>"+i+"</div>"
   }
   if (paginas > 1){
     $(".paginas").html(links);
@@ -28,7 +28,8 @@ function mostrarPagina(pagina, por_pag){
     mostrarProductos(i);
   };
   $(".actual").removeClass("actual")
-  $("."+pagina).addClass("actual");
+  $("#"+pagina).addClass("actual");
+  $(".pagina_actual").val(pagina)
   if (pagina == 1){
     $(".anterior").addClass("desactivado");
   } else {
@@ -55,26 +56,37 @@ function ocultar_todos(){
   $(".mostrar").addClass("ocultar").removeClass("mostrar");
 }
 
-function anterior(){
-  var pag_actual = parseInt($(".pagina_actual").val())
-  $(".pagina_actual").val(pag_actual-1)
-  ocultar_todos();
-  por_pag = parseInt($(".por_pagina").val())
-  mostrarPagina(pag_actual-1, por_pag)
-}
 
-function siguiente(){
-  var pag_actual = parseInt($(".pagina_actual").val())
-  $(".pagina_actual").val(pag_actual+1)
-  ocultar_todos();
-  por_pag = parseInt($(".por_pagina").val())
-  mostrarPagina(pag_actual+1, por_pag)
-}
+$('.anterior').click(function(){
+    var pag_actual = parseInt($(".pagina_actual").val())
+    if (pag_actual > 1){
+      $(".pagina_actual").val(pag_actual-1)
+      ocultar_todos();
+      por_pag = parseInt($(".por_pagina").val())
+      mostrarPagina(pag_actual-1, por_pag)
+    }
+});
 
-function goto(pagina){
-  $(".pagina_actual").val(pagina)
-  ocultar_todos();
-  por_pag = parseInt($(".por_pagina").val())
-  mostrarPagina(pagina, por_pag)
-}
+
+$('.siguiente').click(function(){
+    var pag_actual = parseInt($(".pagina_actual").val())
+    if(pag_actual < paginas){
+      $(".pagina_actual").val(pag_actual+1)
+      ocultar_todos();
+      por_pag = parseInt($(".por_pagina").val())
+      mostrarPagina(pag_actual+1, por_pag)      
+    }
+});
+
+
+$(document).on("click", "a.num_pagina" , function() {
+    var $page_number= $(this);
+    //Obtenemos info emdiante la func por defecto JQuery .data -> Camel Case 
+    //Camel Case -> cardSourceUrl en vez de card-source-url
+    var pagina = parseInt($page_number.data('pageNumber'));
+    ocultar_todos();
+    por_pag = parseInt($(".por_pagina").val())
+    mostrarPagina(pagina, por_pag)
+
+});
 
