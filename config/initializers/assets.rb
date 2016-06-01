@@ -12,6 +12,8 @@ Rails.application.config.assets.precompile += %w( editar_catalogo.css )
 Rails.application.config.assets.precompile += %w( catalogo.css )
 Rails.application.config.assets.precompile += %w( catalogo.js )
 
+#Rails.application.config.assets.precompile += %w( admin.js )
+
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

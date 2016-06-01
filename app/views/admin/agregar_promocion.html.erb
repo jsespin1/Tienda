@@ -12,7 +12,7 @@
     <h2>Agregar Promocion</h2>
 
 
-          <%= form_for(:promocion, :url => {:controller => 'admin', :action => 'agregar_promo'}, :html => {:class => "form_for_sign"}) do |f| %>
+          <%= form_for(:promocion, :url => {:controller => 'admin', :action => 'agregar_promo'}, :html => {:class => "form_for_sign", :id => "formulario_agregar_promocion"}) do |f| %>
             <p class="info-container"> Nombre <%= f.text_field :nombre, :class => "text-field"%> </p>
             <p class="info-container"> Subtotal <%= f.text_field :subtotal, :class => "text-field"%> </p>
             <p class="info-container"> Comentario <%= f.text_field :comentario, :class => "text-field"%> </p>

@@ -12,7 +12,7 @@
     <h2>Editar Producto</h2>
 
 
-          <%= form_for(:producto, :url => {:controller => 'admin', :action => 'actualizar_producto'}, :html => {:class => "form_for_sign"}) do |f| %>
+          <%= form_for(:producto, :url => {:controller => 'admin', :action => 'actualizar_producto'}, :html => {:class => "form_for_sign", :id => 'formulario_agregar_producto'}) do |f| %>
             <p class="info-container"> <%= t 'admin.information.name' %> <%= f.text_field :nombre, :class => "text-field"%> </p>
             <p class="info-container"> <%= t 'admin.product.price' %> <%= f.text_field :precio, :class => "text-field"%> </p>
             <p class="info-container"> <%= t 'admin.catalog.description' %> <%= f.text_field :descripcion, :class => "text-field"%> </p>

@@ -20,7 +20,7 @@
 
   	<div class="overview">
   		<div class="user-info">
-          <%= form_for(:user, :url => {:controller => 'admin', :action => 'update_contrasena'}, :html => {:class => "form_for_sign"}) do |f| %>
+          <%= form_for(:user, :url => {:controller => 'admin', :action => 'update_contrasena'}, :html => {:id => "formulario_cambiar_contrasena", :class => "form_for_sign"}) do |f| %>
             <p class="info-container"> <%= t 'admin.security.new' %> <%= f.password_field :password, :class => "text-field"%> </p>
             <p class="info-container"> <%= t 'admin.security.confirm' %> <%= f.password_field :password_confirmation, :class => "text-field"%> </p>
             <%= f.submit "Actualizar", :class => "submit" %>
