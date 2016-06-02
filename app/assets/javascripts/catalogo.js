@@ -90,78 +90,150 @@ $(document).on("click", "a.num_pagina" , function() {
 
 });
 
-//---------------------------------------INFO PRODUCTO - MODAL------------------------------------//
 
-$(function(){
-  var dialog, form
+/*----------------------------------MODAL---------------------------------------*/
 
-  var $productLinks = $('.fila-prod li');
+var modal = (function(){
+    var method = {};
+    $modal = $('<div id="modal"></div>');
+    $content = $('<div id="content">No JavaScript Yet!</div>');
+    $close = $('<a id="close" href="#">close</a>');
+    $modal.hide();
+    $modal.append($content, $close);
 
-  //Le asociamos un evento a la variable JQuery. En click se ejecuta la funcion 
-  //definida y recibe como parámetro el evento (ev)
-  $productLinks.on('click', function(ev){
-    //Queremos hacer un llamado AJAX
-    //Queremos leer atributo data. para obtenerlo tenemos que obtener el <a>
-    //PreventDefault hace que los eventos no ejecuten sus eventos por default
-    //Como un link te lleve a otra página
-    ev.preventDefault();
-
-    var $link = $(this);
-    //Obtenemos info emdiante la func por defecto JQuery .data -> Camel Case 
-    //Camel Case -> cardSourceUrl en vez de card-source-url
-    var url = $link.data('productSourceUrl');
-    //Ahora hacemos el llamado AJAX a esta dirección, hay dos sintaxis para método .ajax
-    $.ajax({
-      "url": url,
-      //Ver documentacion JQuery ajax para success
-      "success": function(data,ts, jg){
-        console.log("SUCCESS!", data, ts, jg);
-        //Agregamos la información obtenida llamando a funcion construida por nos mas abajo
-        buildProduct(data);
-
-      },
-      "error": function(jg, st, er){
-        console.log("Error: (", jg, st, er);
-      }
+    $(document).ready(function(){
+        $('body').append($modal);
     });
 
+    // Append the HTML
 
-  });
+    method.open = function (settings) {
+        $content.empty().append(settings.content);
+        $modal.css({
+            width: '60%',
+            height: '45%'
+        })
 
-  //Ahora funcion que construye HTML en base a lo rescatado por AJAX
+        method.center();
+
+        $(window).bind('resize.modal', method.center);
+
+        $modal.show();
+        $( 'main' ).fadeTo( "slow", 0.2 );
+        $( 'main' ).unbind('click');
+    };
+
+    method.center = function () {
+        var top, left;
+
+        top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2;
+        left = Math.max($(window).width() - $modal.outerWidth(), 0) / 2;
+
+        $modal.css({
+            top:top + $(window).scrollTop(), 
+            left:left + $(window).scrollLeft()
+        });
+    };
+
+    method.close = function () {
+        $modal.hide();
+        $( 'main' ).fadeTo( "slow", 1 );
+        $content.empty();
+        $(window).unbind('resize.modal');
+    };
+
+
+
+    return method;
+}());
+
+
+
+/*--------------------------METODOS - MODAL---------------------------------------*/
+
+
+$(document).ready(function(){
+        $( "#close" ).click(function() {
+          modal.close();
+        });
+        $( "#close" ).click(function() {
+                  modal.close();
+        });
+        var $productLinks = $('.fila-prod li');
+
+        //Le asociamos un evento a la variable JQuery. En click se ejecuta la funcion 
+        //definida y recibe como parámetro el evento (ev)
+        $productLinks.on('click', function(ev){
+          //Queremos hacer un llamado AJAX
+          //Queremos leer atributo data. para obtenerlo tenemos que obtener el <a>
+          //PreventDefault hace que los eventos no ejecuten sus eventos por default
+          //Como un link te lleve a otra página
+          ev.preventDefault();
+
+          var $link = $(this);
+          //Obtenemos info emdiante la func por defecto JQuery .data -> Camel Case 
+          //Camel Case -> cardSourceUrl en vez de card-source-url
+          var url = $link.data('productSourceUrl');
+
+          //Ahora hacemos el llamado AJAX a esta dirección, hay dos sintaxis para método .ajax
+          $.ajax({
+            "url": url,
+            //Ver documentacion JQuery ajax para success
+            "success": function(data,ts, jg){
+              console.log("SUCCESS!", data, ts, jg);
+              //Agregamos la información obtenida llamando a funcion construida por nos mas abajo
+              buildProduct(data);
+
+            },
+            "error": function(jg, st, er){
+              console.log("Error: (", jg, st, er);
+            }
+          });
+        });
+});
+
+
+
+ //Ahora funcion que construye MODAL-HTML en base a lo rescatado por AJAX
   var buildProduct = function(productInfo) {
     $div = $('<div class="item-modal-info">' + 
-        "<h1>" + productInfo.tipo + "</ h1>" +
-        "<h2>" + productInfo.name + "</ h2>" + 
-        "<p>" + productInfo.desc + "</p>" + 
+          '<a href="#" id="close">close</a>'+
+          "<h2>" + productInfo.nombre + "</ h2>" + 
+          "<p>" + productInfo.desc + "</p>" + 
+          '<div class="button producto" data-tipo="'+productInfo.tipo+'">'+
+                '<button type="button">Ver Producto</button>'+
+          "</div>"+
+          '<div class="button">'+
+                '<button type="button">Add To Cart</button>'+
+          "</div>"+
+          /*'<%= link_to catalogo_show_item_path(:id =>' +  productInfo.id + ', :tipo =>'+ productInfo.tipo+') do %>'+
+                    '<button type="button">Ver Producto</button>'+
+          '<%end %>'+*/
         '</div>');
 
-    $('#myModal').html($div)
-    $('#myModal').modal('show')
-    //ACA HAY QUE METERLE MODAL
-  }
-  //LO que viene ahora es otra forma de modal dialog no esta funiconando
-  
-  modal = $( "#modal-form" ).dialog({
-    autoOpen: false,
-    height: 300,
-    width: 350,
-    modal: true,
-    buttons: {
-      Close: function() {
-        dialog.dialog( "close" );
-      }
-    },
-    close: function() {
-      form[ 0 ].reset();
-      //allFields.removeClass( "ui-state-error" );
-    }
-  });
+    modal.open({content: $div});
+    $(document).ready(function(){
+      $( ".producto" ).on( "click", function() {
+          redirigir_producto(productInfo.id, productInfo.tipo);
+      });
+    });
+    
 
-  $( ".product-container" ).on( "click", function() {
-      modal.dialog( "open" );
-  });
-});
+  }
+
+  var redirigir_producto = function(id, tipo) {
+      var url = window.location.href
+      url = url.replace("#", "");
+      var res = url.replace("index", "");
+      res = res.replace("perros", "");
+      res = res.replace("autos", "");
+      res = res.replace("promociones", "");
+      res = res + "show?tipo=" + tipo + "&id="+id;
+      window.location.replace = res
+      location.replace(res)
+  }
+
+
 
 
 

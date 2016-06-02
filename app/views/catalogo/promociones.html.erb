@@ -37,13 +37,13 @@
 
         <% @items.each do |i| %> 
             <ul class="fila-prod" id="fila-prod-1">
-                <li class="product-container">
+                <li class="product-container" data-product-source-url="<%=product_getInfo_path(:id => i.id.to_i, :tipo => "promocion", format: 'json')%>">
                   <a class="product-image">
                     
                     <span class="product-name"><%=  i.nombre %></span>
                     <span class="normal-price">Antes<%= "  $" + (i.subtotal + i.descuento).to_s %></span>
                     <span class="product-price">Ahora!<%= "  $" + i.subtotal.to_s %></span>
-                    <%= link_to catalogo_show_item_path(:id => i.id.to_i, :tipo => "proomocion") do %>
+                    <%= link_to catalogo_show_item_path(:id => i.id.to_i, :tipo => "promocion") do %>
                         <%=image_tag(i.imagen, :class => "product-draw")%>
                     <%end %>
                   </a>

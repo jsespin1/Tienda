@@ -5,16 +5,19 @@ class CatalogoController < ApplicationController
 		@tipo = params[:tipo]
 		if @tipo=="producto"
 			@item = Product.find(params[:id])
+			descripcion = @item.descripcion
 		else
 			@item = Promocion.find(params[:id])
+			descripcion = @item.comentario
 		end
 		respond_to do |format|
 			format.html {}
 			format.json do 
 				hash_info= {
+				id: params[:id],
 				tipo: @tipo,
 				nombre: @item.nombre,
-				desc: @item.descripcion,
+				desc: descripcion,
 				}
 				render json: hash_info
 			end
@@ -45,7 +48,6 @@ class CatalogoController < ApplicationController
 	end
 
 	def show
-		puts "HOLAAAA" + params.inspect
 		@tipo = params[:tipo]
 		if @tipo=="producto"
 			@item = Product.find(params[:id])
@@ -53,6 +55,7 @@ class CatalogoController < ApplicationController
 			@item = Promocion.find(params[:id])
 		end
 	end
+
 
 
 

@@ -20,6 +20,28 @@ div.catalogo{
 	padding:20px;
 }
 
+/*MODAL*/
+#modal {
+    position:absolute;
+    width:80%;
+    background:rgba(0,0,0,0.2);
+    border-radius:14px;
+    padding:8px;
+}
+#content {
+    border-radius:8px;
+    background:#fff;
+    padding:20px;
+    height:80%;
+}
+#close {
+    position:absolute;
+    width:24px;
+    height:27px;
+    display:block;
+    top:20px;
+    right:40px;
+}
 
 
 /*PAGINACION*/
