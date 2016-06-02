@@ -3,6 +3,7 @@
 <h2 class='User_Header'>Bienvenido, <%=@current_user.username%> ! </h2>
 
 
+
 <% @page_title = "User | Signup" %>
 <div class="profile_form">
 
@@ -18,26 +19,26 @@
 
   <h2 class="crear_cuenta">Crear Nueva Cuenta</h2>
   
-  <%= form_for(:user, :url => {:controller => 'admin', :action => 'create'}, :html => {:class => "form_for_sign"}) do |f| %>
+  <%= form_for(:user, :remote => true, :url => {:controller => 'admin', :action => 'create'}, :html => {:id => "formulario_nuevo_usuario", :class => "form_for_sign"}) do |f| %>
     <h2 class="crear_cuenta"><%= t 'admin.information.name' %></h1>
-    <p class="info-container"> <%= t 'admin.information.name' %> <%= f.text_field :nombre, :class => "text-field"%> </p>
-    <p class="info-container"> <%= t 'admin.information.lastname' %> <%= f.text_field :apellido, :class => "text-field"%> </p>
+    <p class="info-container"> <%= t 'admin.information.nombre*'%> <%= f.text_field :nombre, :class => "text-field"%> </p>
+    <p class="info-container"> <%= t 'admin.information.apellido*'%> <%= f.text_field :apellido, :class => "text-field"%> </p>
     <h2 class="crear_cuenta"><%= t 'admin.information.information' %></h1>
-    <p class="info-container"> <%= t 'admin.information.user' %> <%= f.text_field :username, :class => "text-field"%> </p>
-    <p class="info-container"> <%= t 'admin.information.mail' %> <%= f.text_field :email, :class => "text-field"%> </p>
-    <p class="info-container"> <%= t 'admin.security.password' %> <%= f.password_field :password, :class => "text-field"%></p>
-    <p class="info-container"> <%= t 'admin.security.confirm' %> <%= f.password_field :password_confirmation, :class => "text-field"%> </p>
+    <p class="info-container"> <%= t 'admin.information.usuario*' %> <%= f.text_field :username, :class => "text-field"%> </p>
+    <p class="info-container"> <%= t 'admin.information.correo*' %> <%= f.text_field :email, :class => "text-field"%> </p>
+    <p class="info-container"> <%= t 'admin.security.contraseña*' %> <%= f.password_field :password, :class => "text-field"%></p>
+    <p class="info-container"> <%= t 'admin.security.confirmar contraseña*' %> <%= f.password_field :password_confirmation, :class => "text-field"%> </p>
     <h2 class="crear_cuenta"><%= t 'admin.information.adress' %></h1>
     <p class="info-container"> <%= t 'admin.information.adress' %><%= f.text_field :direccion, :class => "text-field"%> </p>
     <p class="info-container"> <%= t 'admin.information.area' %> <%= f.text_field :comuna, :class => "text-field"%> </p>
     <p class="info-container"> <%= t 'admin.information.city' %> <%= f.text_field :pais, :class => "text-field"%> </p>
     <p class="info-container"> <%= t 'admin.account.administrator' %><%= f.check_box :admin%> </p>
-    <%= f.submit "Registrar", :class => "submit" %>
+    <%= f.submit "Registrar", :class => "submit", :id => "boton" %>
   <% end %>
 
-
-
 </div>
+
+
 
 <% if @user.errors.any? %>
     <ul class="signup_errors">

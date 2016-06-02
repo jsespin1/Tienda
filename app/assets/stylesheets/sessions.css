@@ -149,6 +149,12 @@ input.submit{
 
 }
 
+.error{
+
+	color:red;
+	display: inline-block;
+}
+
 
 
 

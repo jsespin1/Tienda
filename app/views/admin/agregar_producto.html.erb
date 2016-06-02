@@ -12,7 +12,7 @@
     <h2>Agregar Producto</h2>
 
 
-          <%= form_for(:producto, :url => {:controller => 'admin', :action => 'agregar'}, :html => {:class => "form_for_sign"}) do |f| %>
+          <%= form_for(:producto, :url => {:controller => 'admin', :action => 'agregar'}, :html => {:id => "formulario_agregar_producto", :class => "form_for_sign"}) do |f| %>
             <p class="info-container"> Nombre <%= f.text_field :nombre, :class => "text-field"%> </p>
             <p class="info-container"> Precio <%= f.text_field :precio, :class => "text-field"%> </p>
             <p class="info-container"> Descripcion <%= f.text_field :descripcion, :class => "text-field"%> </p>
