@@ -48,3 +48,7 @@ group :development do
   gem 'spring'
 end
 
+group :assets do
+  gem 'jquery-ui-rails', :git => 'https://github.com/joliss/jquery-ui-rails'
+end
+
