@@ -1,0 +1,295 @@
+/*GRIDS*/
+
+
+div.catalogo-container{
+	display:inline-block;
+	margin-top:50px;
+}
+
+div.catalogo-nav{
+	float:left;
+	width:25%;
+	padding:20px;
+	border-top: 1px solid #bcbaba;
+	border-bottom: 1px solid #bcbaba;
+	border-color: #fc3;
+	margin-top:100px;
+}
+div.catalogo{
+	float:right;
+	width:60%;
+	padding:20px;
+}
+
+/*MODAL*/
+#modal {
+    position:absolute;
+    width:80%;
+    background:rgba(0,0,0,0.2);
+    border-radius:14px;
+    padding:8px;
+}
+#content {
+    border-radius:8px;
+    background:#fff;
+    padding:20px;
+    height:80%;
+}
+#close {
+    position:absolute;
+    width:24px;
+    height:27px;
+    display:block;
+    top:20px;
+    right:40px;
+}
+
+
+/*PAGINACION*/
+
+ul.mostrar{
+ 	display: inline-block;
+}
+
+ul.ocultar{
+ 	display: none;
+}
+
+.desactivado {
+	opacity: 0.6;
+    pointer-events: none;
+    cursor: default;
+}
+
+.actual{
+    color: #fc3;
+}
+
+div.link-paginas{
+	clear:both;
+	display:block;
+	margin-top:50px;
+	margin-left:190px;
+}
+
+.link-paginas > a, .link-paginas > div {
+	display:inline-block;
+	float:left;
+	padding-right:10px;
+}
+
+div.paginas > a{
+	padding-right:6px;
+}
+
+/*SEARCH*/
+
+div.search-container{
+	height:22px;
+}
+div.search-container:hover{
+	cursor:pointer;
+}
+
+img.search-icon{
+	height:22px;
+	position:relative;
+	right:-49%;
+	padding-top:10px;
+}
+
+/*PATH Pagina*/
+
+div.path-container{
+	clear:both;
+	border-width: 1px;
+	font-size:10px;
+	position: relative;
+    top: 30px;
+    right:-43%;
+    padding-top:20px;
+}
+
+li.path_e{
+	display:inline-block;
+	float:left;
+	height:22px;
+}
+
+span.gap{
+	display:inline-block;
+	position:relative;
+	vertical-align:top;
+	text-align:top;
+	height:20px;
+}
+
+li a{
+	font-family: 'Century Gothic';
+	color:black;	
+	font-size:14px;
+	padding-right:10px;
+	padding-left:5px;
+	text-decoration:none;
+	font-style: italic;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+li a.redirigir:hover{
+	color:#fc3;
+}
+
+li a{
+	cursor:pointer;
+}
+
+a.current-path{
+	font-weight:bold;
+	color:#fc3;
+}
+
+
+
+
+/*NAVBAR DE CATALOGO*/
+
+ul.catalogo_nav{
+	width:200px;
+}
+li.lateral{
+	padding-bottom: 15px;
+	padding-top: 15px;
+	padding-left:15px;
+	font-family: "Franklin Gothic Book","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 15px;
+	text-transform: uppercase;
+}
+
+
+
+
+/*CUERPO CATALOGO - ITEMS*/
+
+
+div.catalogo-container{
+	display:block;
+	min-height:100%;
+}
+
+li.product-container{
+	width:100%;
+	height:150px;
+	margin-top:30px;
+	background-color:#2E2E2E;
+}
+
+li > a > span.product-name{
+	float:left;
+	height:5px;
+	padding-left:15px;
+	padding-top:10px;
+	font-size:15px;
+	color:white;
+}
+li > a > span.product-price{
+	clear:both;
+	float:left;
+	padding-left:15px;
+	font-size:15px;
+	color:white;
+}
+li > a > span.normal-price{
+	clear:both;
+	float:left;
+	padding-left:15px;
+	font-size:15px;
+	text-decoration: line-through;
+	color:white;
+}
+
+span.product-price:hover, span.product-name:hover{
+	color:#fc3;
+}
+
+a.product-image{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img.product-draw{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:33%;
+    padding-top:25px;
+}
+
+/*-------- Pasamos a la parte donde se muestra el producto --------*/
+
+div.product-container{
+  display:inline-block;
+  width:100%;
+  min-height:100%;
+  margin-top: 150px;
+
+}
+div.product-media{
+  float:left;
+  width:60%;
+  margin-top: 50px;
+}
+div.product-info{
+  float:right;
+  width: 30%;
+  margin-right: 40px;
+}
+img.product-show{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:60%;
+}
+
+.old-price{
+	text-decoration: line-through;
+}
+
+p{
+
+  font-size: 13px;
+  font-family: "Franklin Gothic Book","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #403C3D;
+  text-align: justify;
+}
+.sizing{
+  font-style: italic;
+  font-size: 13px;
+}
+.decision-button{
+  margin-top: 50px;
+}
+
+/*GENERAL*/
+
+a.label{
+	width: 100px;
+}
+
+a:hover{
+	color: #fc3;
+}
+
+a{
+	text-decoration: none;
+	color:inherit;
+	color: #202020;
+	text-transform: uppercase;
+	font-family: "Franklin Gothic Book","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight:normal;
+}
+
+
+
+

@@ -1,0 +1,38 @@
+html {
+  margin: 0 auto;
+}
+body {
+  /* de altura 100% */
+  margin: 0 auto;
+  background: #FFFEF9;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+main {
+	background: #FFFEF9;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+
+
+input.btn{
+  width:160px;
+  height:90px;
+  border: 1px solid #ddd;
+  background-color: #fc3;
+  color: #403C3D;
+  padding: 4px 12px;   
+  -o-transition: background-color .2s ease-in; 
+  -moz-transition: background-color .2s ease-in;
+  -webkit-transition: background-color .2s ease-in; 
+  transition: background-color .2s ease-in;
+  margin-left:280px;
+  margin-top:80px;
+}
+
+
+input.btn:hover{
+  border-color:#CCFFCC  ;
+  color:#CCFFCC ;
+}
