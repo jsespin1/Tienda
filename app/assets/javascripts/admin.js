@@ -90,7 +90,7 @@ $(document).ready(function(){
 
 	}
 	if ($form2.length > 0) {
-		var contador = 0:
+		var contador = 0;
 		$form2.on("submit", function(evento){
 
 			if(contador>0){
