@@ -11,6 +11,7 @@ Rails.application.config.assets.precompile += %w( editar_catalogo.css )
 
 Rails.application.config.assets.precompile += %w( catalogo.css )
 Rails.application.config.assets.precompile += %w( catalogo.js )
+Rails.application.config.assets.precompile += %w( admin.js )
 Rails.application.config.assets.precompile += %w( jquery.js )
 Rails.application.config.assets.precompile += %w( jquery.min.js )
 Rails.application.config.assets.precompile += %w( application.js )
