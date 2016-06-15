@@ -99,6 +99,8 @@ span.active {
 /*Icono search debajo del logo*/
 
 div.search-container{
+	position: relative;
+	top:70px;
 	height:22px;
 }
 div.search-container:hover{
@@ -114,21 +116,7 @@ img.search-icon{
 
 /*Ruta de la página*/
 
-ul.path{
-	clear:both;
-	border-width: 1px;
-	font-size:10px;
-	position: relative;
-    top: 30px;
-    right:-44%;
-    padding-top:20px;
-}
 
-li.path_e{
-	display:inline-block;
-	float:left;
-	height:22px;
-}
 
 span.gap{
 	display:inline-block;
@@ -176,7 +164,9 @@ div.page-wrapper{
 /* Vemos el titulo, que esta centrado, y manejamos las lineas que estan a los costados */
 
 div.title-container{
-	display:inline-block
+	display:inline-block;
+	position: relative;
+	top:30px;
 	width: 100%;
 	height:20px;
 }
@@ -247,15 +237,16 @@ span.product-price:hover, span.product-name:hover{
 
 a.product-image{
 	display: block;
+	width:100%;
     margin-left: auto;
     margin-right: auto;
 }
 
-img.product-draw{
+img.product-draw-home{
 	display: block;
     margin-left: auto;
     margin-right: auto;
-    width:33%;
+    width:30%;
     padding-top:25px;
 }
 

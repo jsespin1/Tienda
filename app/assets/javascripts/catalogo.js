@@ -18,10 +18,14 @@ $(document).ready(function(){
   }else{
     $(".link-paginas").html("");
   }
-
   set_ocultar();
-  mostrarPagina(actual, prods_por_pag)
+  mostrarPagina(actual, prods_por_pag);
 })
+
+
+$(function() {
+    console.log( "ready!" );
+});
 
 function mostrarPagina(pagina, por_pag){
   var primero = (pagina * por_pag) - (por_pag - 1)
@@ -59,7 +63,7 @@ function ocultar_todos(){
 }
 
 
-$('.anterior').click(function(){
+$(document).on("click", ".anterior" , function() {
     var pag_actual = parseInt($(".pagina_actual").val())
     if (pag_actual > 1){
       $(".pagina_actual").val(pag_actual-1)
@@ -70,7 +74,7 @@ $('.anterior').click(function(){
 });
 
 
-$('.siguiente').click(function(){
+$(document).on("click", ".siguiente" , function() {
     var pag_actual = parseInt($(".pagina_actual").val())
     if(pag_actual < paginas){
       $(".pagina_actual").val(pag_actual+1)

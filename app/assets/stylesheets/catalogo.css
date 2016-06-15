@@ -65,16 +65,31 @@ ul.ocultar{
 }
 
 div.link-paginas{
+	display: inline-block;
 	clear:both;
-	display:block;
 	margin-top:50px;
 	margin-left:190px;
 }
 
-.link-paginas > a, .link-paginas > div {
-	display:inline-block;
-	float:left;
+.link-paginas > a, .link-paginas > div.paginas { 
 	padding-right:10px;
+}
+
+a.anterior{
+	display: inline-block;
+	float:left;
+	clear:both;
+}
+
+div.paginas {
+	display: inline-block;
+	float: left;
+}
+
+a.siguiente {
+	display: inline-block;
+	float:left;
+	clear:both;
 }
 
 div.paginas > a{
