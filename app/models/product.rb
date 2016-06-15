@@ -10,4 +10,23 @@ class Product < ActiveRecord::Base
 	validates :nombre, :presence => true, :length => { :in => 2..100 }
   validates :precio, :presence => true
   validates :tipo, :presence => true
+
+
+  def get_all
+
+    products = Product.all
+    respuesta = Array.new
+    url = "localhost:3000/api/v1/products/"
+    products.each do |p|
+      id = p.id
+      url = url + id.to_s
+      hash = {
+        fully_url: url,
+      }
+      respuesta.push(hash)
+    end
+    respuesta
+  end
+
+
 end
