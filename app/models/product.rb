@@ -12,12 +12,11 @@ class Product < ActiveRecord::Base
   validates :tipo, :presence => true
 
 
-  def get_all
-
+  def self.get_all
     products = Product.all
     respuesta = Array.new
-    url = "localhost:3000/api/v1/products/"
     products.each do |p|
+      url = "localhost:3000/api/v1/products/"
       id = p.id
       url = url + id.to_s
       hash = {
