@@ -9,7 +9,8 @@ class Product < ActiveRecord::Base
 
 	validates :nombre, :presence => true, :length => { :in => 2..100 }
   validates :precio, :presence => true
-  validates :tipo, :presence => true
+  validates :descripcion, :presence => true
+  validates :imagen, length: { minimum: 0, allow_nil: false, message: "can't be nil" }
 
 
   def self.get_all

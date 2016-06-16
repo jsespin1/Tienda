@@ -2,6 +2,7 @@ class Api::V1::ApiController < ApplicationController
 
 	respond_to :json, :html
 	protect_from_forgery with: :null_session
+	skip_before_filter  :verify_authenticity_token
 
 
 
@@ -16,6 +17,30 @@ class Api::V1::ApiController < ApplicationController
 			end
 		end
 	end
+
+	def create
+		params.permit!
+		product = Product.new(params[:product])
+		if Product.where(:id => params[:id]).present?
+			#AQUI ES DONDE EL PRODUCTO YA EXISTE
+			respond_to do |format|
+				format.json {render json: {description: "Producto ya existe"}, status: 422}	
+			end
+		else
+			product.id = params[:id]
+
+			respond_to do |format|
+				if product.save
+					puts "entre al save"
+					format.json {render json: {products: product}, status:201}
+				else
+					puts "entre al error"
+					format.json {render json: {description: product.errors}, status: 422}
+				end
+			end
+		end
+	end
+		
 
 
 	def getTags
@@ -72,6 +97,23 @@ class Api::V1::ApiController < ApplicationController
 			respuesta = nil
 		end
 		respuesta
+	end
+
+	private
+
+  	def check_parameters(params)
+		coherente = true
+		prod_params = ["nombre", "precio", "descripcion", "imagen"]
+		params.except(:action, :controller, :format, :id).each do |p|
+			unless prod_params.include?(p[0].to_s)
+			    coherente = false
+			end
+		end
+		coherente
+	end
+
+	def product_params
+     	params.require(:product).permit(:nombre, :precio, :descripcion)
 	end
 
 end
