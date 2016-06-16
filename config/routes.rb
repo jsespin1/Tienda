@@ -98,7 +98,7 @@ Rails.application.routes.draw do
     namespace :v1 do
         get '/products' => 'api#products'
         put '/update/:id' => 'api#update'
-        delete '/products/:id' => 'api#delete'
+        match '/products/:id', to: 'api#delete', via: [:get, :delete, :head]
     end
   end
 
