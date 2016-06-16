@@ -12,6 +12,7 @@ class Product < ActiveRecord::Base
   validates :descripcion, :presence => true
   validates :imagen, length: { minimum: 0, allow_nil: false, message: "can't be nil" }
 
+  before_create :set_uuid
 
   def self.get_all
     products = Product.all
@@ -28,20 +29,11 @@ class Product < ActiveRecord::Base
     respuesta
   end
 
-  def self.update1(params)
-    actualizado = false
-    product = Product.find(params[:id])
-    if Product.create(params.except(:action, :controller, :format).permit(:id, :nombre, :precio, :descripcion, :imagen))
-      actualizado = true
-    end
-    puts "Actualizado: " << actualizado.to_s
-    actualizado
-  end
 
-  def self.update2(params)
+  def self.update(params)
     actualizado = false
     product = Product.find(params[:id])
-    if product.update_attributes(params.permit(:nombre, :precio, :descripcion, :imagen))
+    if product.update_attributes(params[:product].permit(:nombre, :precio, :descripcion, :imagen))
       actualizado = true
     end
     actualizado
@@ -54,6 +46,11 @@ class Product < ActiveRecord::Base
       existe = true
     end
     existe
+  end
+
+  def set_uuid
+    uuid = SecureRandom.hex
+    self.uuid = uuid
   end
 
 end

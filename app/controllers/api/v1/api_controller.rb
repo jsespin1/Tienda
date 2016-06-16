@@ -13,7 +13,7 @@ class Api::V1::ApiController < ApplicationController
 		elsif request.put?
 			create
 		elsif request.patch?
-			update
+			update_patch
 		elsif request.delete?
 			delete
 		elsif request.head?	
@@ -39,7 +39,7 @@ class Api::V1::ApiController < ApplicationController
 		params.permit!
 		product = Product.new(params[:product])
 		if Product.where(:id => params[:id]).present?
-			update
+			update_put
 			return
 		else
 			product.id = params[:id]
@@ -57,13 +57,30 @@ class Api::V1::ApiController < ApplicationController
 	end
 
 
-	def update
+	def update_put
+		respond_to do |format|
+			if params[:id]
+				puts "PARAMETROS-> " << params.inspect
+				params_coherentes = check_parameters(params)
+				if  params_coherentes and check_parameters_put(params)
+					product = Product.update(params)
+					format.json {render json: {product: product, coherente: params_coherentes}, status:200}
+				else
+					format.json {render json: {description: 'Bad Parameters'}, status:400}
+				end
+			else
+				format.json {render json: {description: 'Bad Parameters'}, status:400}
+			end
+		end
+	end
+
+	def update_patch
 		respond_to do |format|
 			if params[:id]
 				existe = Product.exists(params[:id])
 				params_coherentes = check_parameters(params)
-				if existe and params_coherentes
-					product = Product.update1(params)
+				if existe and params_coherentes 
+					product = Product.update(params)
 					format.json {render json: {product: product, coherente: params_coherentes}, status:200}
 				else
 					format.json {render json: {description: 'Product doesn´t exist or Bad Parameters'}, status:400}
@@ -108,7 +125,7 @@ class Api::V1::ApiController < ApplicationController
 				format.json {render json: {}, status:200}
 			else
 				# format.json {render json: {description: 'Bad Parameters'}, status:400}
-				format.json {render json: nothing: true, status:400}
+				format.json {render json: {}, status:400}
 			end
 		end
 	end
@@ -138,10 +155,28 @@ class Api::V1::ApiController < ApplicationController
 	def check_parameters(params)
 		coherente = true
 		prod_params = ["nombre", "precio", "descripcion", "imagen"]
-		params.except(:action, :controller, :format, :id).each do |p|
+		lista = params[:product]
+		lista.except(:action, :controller, :format, :id).each do |p|
 			unless prod_params.include?(p[0].to_s)
 			    coherente = false
 			end
+		end
+		coherente
+	end
+
+	def check_parameters_put(params)
+		#Debemos asegurar que estan todos lo campos
+		coherente = false
+		prod_params = ["nombre", "precio", "descripcion", "imagen"]
+		lista = params[:product]
+		contador = 0
+		lista.except(:action, :controller, :format, :id).each do |p|
+			if prod_params.include?(p[0].to_s)
+			    contador = contador + 1
+			end
+		end
+		if contador == prod_params.length
+			coherente = true
 		end
 		coherente
 	end
