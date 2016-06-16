@@ -97,6 +97,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
         get '/products' => 'api#products'
+        put '/update/:id' => 'api#update'
+        delete '/products/:id' => 'api#delete'
     end
   end
 

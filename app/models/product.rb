@@ -27,5 +27,32 @@ class Product < ActiveRecord::Base
     respuesta
   end
 
+  def self.update1(params)
+    actualizado = false
+    product = Product.find(params[:id])
+    if Product.create(params.except(:action, :controller, :format).permit(:id, :nombre, :precio, :descripcion, :imagen))
+      actualizado = true
+    end
+    puts "Actualizado: " << actualizado.to_s
+    actualizado
+  end
+
+  def self.update2(params)
+    actualizado = false
+    product = Product.find(params[:id])
+    if product.update_attributes(params.permit(:nombre, :precio, :descripcion, :imagen))
+      actualizado = true
+    end
+    actualizado
+  end
+
+  def self.exists(id)
+    existe = false
+    product = Product.find(id)
+    if product
+      existe = true
+    end
+    existe
+  end
 
 end

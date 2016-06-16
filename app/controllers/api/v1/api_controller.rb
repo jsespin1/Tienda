@@ -12,9 +12,56 @@ class Api::V1::ApiController < ApplicationController
 			if products.count > 0
 				format.json {render json: {products: products}, status:200}
 			else
-				format.json {render json: {description: 'Problems in DB'}, status:400}
+				format.json {render json: {description: 'Problems in DB'}, status:500}
 			end
 		end
+	end
+
+
+	def update
+		respond_to do |format|
+			if params[:id]
+				existe = Product.exists(params[:id])
+				params_coherentes = check_parameters(params)
+				if existe and params_coherentes
+					product = Product.update1(params)
+					format.json {render json: {product: product, coherente: params_coherentes}, status:200}
+				else
+					format.json {render json: {description: 'Product doesn´t exist or Bad Parameters'}, status:400}
+				end
+			else
+				format.json {render json: {description: 'Bad Parameters'}, status:400}
+			end
+		end
+	end
+
+	def delete
+		respond_to do |format|
+			if params[:id]
+				existe = Product.exists(params[:id])
+				if existe 
+					product = Product.find(params[:id])
+					product.destroy
+					format.json {render json: {product: product, coherente: params_coherentes}, status:200}
+				else
+					format.json {render json: {description: 'The product doesn´t exist'}, status:404}
+				end
+			else
+				format.json {render json: {description: 'Bad Parameters'}, status:400}
+			end
+		end
+	end
+
+
+	def check_parameters(params)
+		coherente = true
+		prod_params = ["nombre", "precio", "descripcion", "imagen"]
+		params.except(:action, :controller, :format, :id).each do |p|
+			unless prod_params.include?(p[0].to_s)
+			    coherente = false
+			end
+		end
+		coherente
 	end
 
 
