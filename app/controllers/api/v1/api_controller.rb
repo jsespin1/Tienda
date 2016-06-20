@@ -27,7 +27,7 @@ class Api::V1::ApiController < ApplicationController
 		
 		respond_to do |format|
 			if Product.where(:id => params[:id]).present?
-				product = Product.find(params[:id])
+				product = Product.find_by_uuid(params[:id])
 				fresh_when product
 				format.json {render json: {products: product}, status:200}
 			else
