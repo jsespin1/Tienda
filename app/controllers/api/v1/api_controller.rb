@@ -31,7 +31,7 @@ class Api::V1::ApiController < ApplicationController
 				fresh_when product
 				format.json {render json: {products: product}, status:200}
 			else
-				format.json {render json: {description: 'Producto no existe'}, status:500}
+				format.json {render json: {description: 'Producto no existe'}, status:404}
 			end
 		end
 		
@@ -44,7 +44,7 @@ class Api::V1::ApiController < ApplicationController
 			if products.count > 0
 				format.json {render json: {products: products}, status:200}
 			else
-				format.json {render json: {description: 'Problems in DB'}, status:500}
+				format.json {render json: {description: 'Problems in DB'}, status:404}
 			end
 		end
 	end
@@ -99,7 +99,7 @@ class Api::V1::ApiController < ApplicationController
 					product = Product.update(params)
 					format.json {render json: {product: product, coherente: params_coherentes}, status:200}
 				else
-					format.json {render json: {description: 'Product doesn´t exist or Bad Parameters'}, status:400}
+					format.json {render json: {description: 'Product doesn´t exist or Bad Parameters'}, status:404}
 				end
 			else
 				format.json {render json: {description: 'Bad Parameters'}, status:400}
