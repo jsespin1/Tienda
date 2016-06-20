@@ -10,6 +10,7 @@ class Api::V1::ApiController < ApplicationController
 	def controlador
 		if request.get?
 			#METODO GET GERARDO
+			get
 		elsif request.put?
 			create
 		elsif request.patch?
@@ -20,6 +21,21 @@ class Api::V1::ApiController < ApplicationController
 			head(params[:id])
 		end
 
+	end
+
+	def get
+		
+		
+		respond_to do |format|
+			if Product.where(:id => params[:id]).present?
+				product = Product.find(params[:id])
+				fresh_when product
+				format.json {render json: {products: product}, status:200}
+			else
+				format.json {render json: {description: 'Producto no existe'}, status:500}
+			end
+		end
+		
 	end
 
 	def products
@@ -46,6 +62,7 @@ class Api::V1::ApiController < ApplicationController
 
 			respond_to do |format|
 				if product.save
+
 					puts "entre al save"
 					format.json {render json: {products: product}, status:201}
 				else
@@ -108,7 +125,7 @@ class Api::V1::ApiController < ApplicationController
 				format.json {render json: {}, status:200}
 			else
 				# format.json {render json: {description: 'Bad Parameters'}, status:400}
-				format.json {render json: nothing: true, status:400}
+				format.json {render json: {}, status:400}
 			end
 		end
 	end
