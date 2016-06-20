@@ -21,7 +21,7 @@ class Product < ActiveRecord::Base
       if Rails.env == 'development'
           url = "localhost:3000/api/v1/products/"
       else
-          url = "fathomless-plains-96262.herokuapp.com/"
+          url = "fathomless-plains-96262.herokuapp.com/api/v1/products/"
       end
       uuid = p.uuid
       url = url + uuid.to_s
