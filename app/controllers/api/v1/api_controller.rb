@@ -110,7 +110,7 @@ class Api::V1::ApiController < ApplicationController
 				if existe 
 					product = Product.find_by_uuid(params[:id])
 					product.destroy
-					format.json {render json: {product: product}, status:200}
+					format.json {render json: {description: Producto eliminado satisfactoriamente}, status:200}
 				else
 					format.json {render json: {description: 'The product doesn´t exist'}, status:404}
 				end
