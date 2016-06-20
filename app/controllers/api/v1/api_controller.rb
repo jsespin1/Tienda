@@ -22,11 +22,9 @@ class Api::V1::ApiController < ApplicationController
 		end
 	end
 
-	def get
-		
-		
+	def get		
 		respond_to do |format|
-			if Product.where(:id => params[:id]).present?
+			if Product.where(:uuid => params[:id]).present?
 				product = Product.find_by_uuid(params[:id])
 				fresh_when product
 				format.json {render json: {products: product}, status:200}
@@ -53,15 +51,13 @@ class Api::V1::ApiController < ApplicationController
 	def create
 		params.permit!
 		product = Product.new(params[:product])
-		if Product.where(:id => params[:id]).present?
+		if Product.where(:uuid => params[:id]).present?
 			update_put
 			return
 		else
 			product.id = params[:id]
-
 			respond_to do |format|
 				if product.save
-
 					puts "entre al save"
 					format.json {render json: {products: product}, status:201}
 				else
