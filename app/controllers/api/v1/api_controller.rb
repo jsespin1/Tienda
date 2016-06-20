@@ -19,7 +19,6 @@ class Api::V1::ApiController < ApplicationController
 		elsif request.head?	
 			head(params[:id])
 		end
-
 	end
 
 	def products
@@ -93,16 +92,11 @@ class Api::V1::ApiController < ApplicationController
 
 	def delete
 		respond_to do |format|
-			puts "ENV: " << env["REQUEST_METHOD"].to_s
-			if request.head?
-				head(params[:id])
-				return
-			end
 			if params[:id]
 				existe = Product.exists(params[:id])
 				if existe 
-					product = Product.find(params[:id])
-					#product.destroy
+					product = Product.find_by_uuid(params[:id])
+					product.destroy
 					format.json {render json: {product: product}, status:200}
 				else
 					format.json {render json: {description: 'The product doesn´t exist'}, status:404}
@@ -119,9 +113,9 @@ class Api::V1::ApiController < ApplicationController
 		respond_to do |format|
 			if params[:id]
 				puts "Headers -> " << request.headers['Authorization'].inspect
-				product = Product.find(params[:id])
-				#response.headers['Last-Modified'] = product.updated_at
-				response.headers['Last-Modified'] = "perro"
+				product = Product.find_by_uuid(params[:id])
+				response.headers['Last-Modified'] = product.updated_at.to_s
+				#response.headers['Last-Modified'] = "perro"
 				format.json {render json: {}, status:200}
 			else
 				# format.json {render json: {description: 'Bad Parameters'}, status:400}
@@ -140,7 +134,6 @@ class Api::V1::ApiController < ApplicationController
 	def authenticate
 		autorizado = false
 		@auth = Rack::Auth::Basic::Request.new(request.env)
-
 	    authenticate_or_request_with_http_basic do |username, password|
 	      authorized_user = User.authenticate(username, password)
 	      if authorized_user

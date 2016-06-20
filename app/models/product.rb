@@ -18,9 +18,13 @@ class Product < ActiveRecord::Base
     products = Product.all
     respuesta = Array.new
     products.each do |p|
-      url = "localhost:3000/api/v1/products/"
-      id = p.id
-      url = url + id.to_s
+      if Rails.env == 'development'
+          url = "localhost:3000/api/v1/products/"
+      else
+          url = "fathomless-plains-96262.herokuapp.com/"
+      end
+      uuid = p.uuid
+      url = url + uuid.to_s
       hash = {
         fully_url: url,
       }
@@ -32,7 +36,7 @@ class Product < ActiveRecord::Base
 
   def self.update(params)
     actualizado = false
-    product = Product.find(params[:id])
+    product = Product.find_by_uuid(params[:id])
     if product.update_attributes(params[:product].permit(:nombre, :precio, :descripcion, :imagen))
       actualizado = true
     end
@@ -41,7 +45,7 @@ class Product < ActiveRecord::Base
 
   def self.exists(id)
     existe = false
-    product = Product.find(id)
+    product = Product.find_by_uuid(id)
     if product
       existe = true
     end
