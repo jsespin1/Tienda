@@ -153,7 +153,7 @@ class Api::V1::ApiController < ApplicationController
 		@auth = Rack::Auth::Basic::Request.new(request.env)
 	    authenticate_or_request_with_http_basic do |username, password|
 	      authorized_user = User.authenticate(username, password)
-	      if authorized_user
+	      if authorized_user and User.isAdmin(username)
 	      	autorizado = true
 	      end
 	   end

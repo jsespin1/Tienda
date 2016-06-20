@@ -31,6 +31,20 @@ class User < ActiveRecord::Base
       return false
     end
   end   
+
+  def self.isAdmin(username_or_email="")
+    if  EMAIL_REGEX.match(username_or_email)    
+      user = User.find_by_email(username_or_email)
+    else
+      user = User.find_by_username(username_or_email)
+    end
+    if user && user.admin
+      return true 
+    else
+      return false
+    end
+  end
+
   def match_password(login_password="")
     encriptada = BCrypt::Engine.hash_secret(login_password, self.salt)
   end
