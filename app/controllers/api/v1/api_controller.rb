@@ -50,12 +50,12 @@ class Api::V1::ApiController < ApplicationController
 
 	def create
 		params.permit!
-		product = Product.new(params[:product])
-		if Product.where(:uuid => params[:id]).present?
+		existe = Product.exists(params[:id])
+		if existe
 			update_put
 			return
 		else
-			#product.id = params[:id]
+			product = Product.new(params[:product])
 			respond_to do |format|
 				if product.save
 					puts "entre al save"
