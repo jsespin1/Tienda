@@ -55,7 +55,7 @@ class Api::V1::ApiController < ApplicationController
 			update_put
 			return
 		else
-			product.id = params[:id]
+			#product.id = params[:id]
 			respond_to do |format|
 				if product.save
 					puts "entre al save"
