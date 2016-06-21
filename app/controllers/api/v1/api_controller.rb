@@ -125,11 +125,15 @@ class Api::V1::ApiController < ApplicationController
 	def head(id)
 		respond_to do |format|
 			if params[:id]
-				puts "Headers -> " << request.headers['Authorization'].inspect
-				product = Product.find_by_uuid(params[:id])
-				response.headers['Last-Modified'] = product.updated_at.to_s
-				#response.headers['Last-Modified'] = "perro"
-				format.json {render json: {}, status:200}
+				existe = Product.exists(params[:id])
+				if existe
+					product = Product.find_by_uuid(params[:id])
+					response.headers['Last-Modified'] = product.updated_at.to_s
+					#response.headers['Last-Modified'] = "perro"
+					format.json {render json: {}, status:200}
+				else
+					format.json {render json: {description: 'The product doesn´t exist'}, status:404}
+				end
 			else
 				# format.json {render json: {description: 'Bad Parameters'}, status:400}
 				format.json {render json: {}, status:400}
