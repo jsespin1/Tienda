@@ -12,7 +12,7 @@ class Product < ActiveRecord::Base
   validates :descripcion, :presence => true
   validates :imagen, length: { minimum: 0, allow_nil: false, message: "can't be nil" }
 
-  after_create :set_uuid
+  before_create :set_uuid
 
   def self.get_all
     products = Product.all
